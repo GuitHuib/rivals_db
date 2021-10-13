@@ -1,0 +1,13 @@
+<% provide(:title, 'Cards') %>
+<h1>All Cards</h1>
+
+<%= render 'shared/search', resource_name: :cards %>
+
+<%= render @cards %>
+<ul>
+  <% @cards.each do |card| %>
+    <li>
+      <%= link_to card.name, card %>
+    </li>
+  <% end %>
+</ul>

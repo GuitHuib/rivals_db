@@ -1,0 +1,26 @@
+var element = document.querySelector("#c_<%= j @card.id %> > .count")
+var type = "<%= j @card.card_type %>"
+
+if (element) {
+  num = parseInt(element.innerHTML)
+  element.innerHTML = num + 1;
+}
+else if (type === "Agenda") {
+  document.querySelector("#agendas > .card-container").insertAdjacentHTML("beforeend",
+  "<%= escape_javascript(render 'decks/card', card: @card, card_count: 1) %>")
+}
+else if (type === "Haven") {
+  document.querySelector("#havens > .card-container").insertAdjacentHTML("beforeend",
+  "<%= escape_javascript(render 'decks/card', card: @card, card_count: 1) %>")
+}
+else if (type === "character") {
+  document.querySelector("#characters > .card-container").insertAdjacentHTML("beforeend",
+  "<%= escape_javascript(render 'decks/card', card: @card, card_count: 1) %>")
+}
+else if (type !== ["agenda", "Haven", "character"]){
+  document.querySelector("#library > .card-container").insertAdjacentHTML("beforeend",
+  "<%= escape_javascript(render 'decks/card', card: @card, card_count: 1) %>")
+}
+else {
+  alert("oops, Ryan screwed somethin up. Let him know what happened, the moron.")
+}

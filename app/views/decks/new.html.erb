@@ -1,0 +1,26 @@
+<% provide(:title, 'New Deck') %>
+
+<h1>new deck</h1>
+
+<%= form_with(model: @deck, local: true) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form_control' %>
+
+  <%= f.submit yield(:btn_txt), class: 'btn btn-primary' %>
+
+<% end %>
+
+<ul>
+  <% @cards.each do |card| %>
+  <li>
+    <%= card.name %>
+  </li>
+  <% end %>
+</ul>

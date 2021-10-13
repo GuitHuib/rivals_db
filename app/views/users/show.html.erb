@@ -1,0 +1,19 @@
+<% provide(:title, 'User') %>
+<h1>User Name</h1>
+
+<%= @user.username %>
+<%= @user.email %>
+
+<ul>
+  <% @decks.each do |deck| %>
+    <li>
+      <%= link_to deck.name, deck %>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_with model: @deck do |f| %>
+  <%= f.text_field :name, placeholder: "Deck Name" %>
+  <%= hidden_field_tag :id, @user.id %>
+  <%= submit_tag "New Deck", class: "btn btn-primary" %>
+<% end %>

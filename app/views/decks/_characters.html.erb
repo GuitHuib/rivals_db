@@ -1,0 +1,9 @@
+<div id="characters">
+  <h2>Characters</h2>
+  <h1>Card count: <%= @characters.length %></h1>
+  <div class="card-container">
+    <% @characters.uniq.each do |card| %>
+      <%= render 'decks/card', card: card, card_count: @characters.select{|c| c.name == card.name}.length %>
+    <% end %>
+  </div>
+</div>

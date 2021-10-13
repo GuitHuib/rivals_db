@@ -1,0 +1,11 @@
+<% provide(:title, 'Decks') %>
+<h1>All Decks</h1>
+
+<ul class="decks">
+  <% @decks.each do |deck| %>
+    <li>
+      <%= link_to deck.name, deck %>
+    </li>
+  <% end %>
+  <%= link_to "New Deck", new_deck_path %>
+</ul>

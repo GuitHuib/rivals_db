@@ -1,0 +1,22 @@
+<div class="card-list">
+  <div class="row">
+    <div class="col-md-2">
+      Name
+    </div>
+    <div class="col-md-2">
+      Faction
+    </div>
+    <div class="col-md-2">
+      Type
+    </div>
+    <div class="col-md-2">
+      Cost
+    </div>
+    <div class="col-md-2">
+      Add to Deck
+    </div>
+  </div>
+  <% @cards.each do |card| %>
+    <%= render card, deck: @deck %>
+    <% end %>
+</div>

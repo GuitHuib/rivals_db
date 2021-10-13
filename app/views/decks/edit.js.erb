@@ -1,0 +1,13 @@
+var element = document.querySelector("#c_<%= j @card.id %> > .count")
+var count = parseInt(element.innerHTML)
+var type = "<%= j @card.card_type %>"
+
+if (count > 1){
+  element.innerHTML = count - 1
+}
+else if (element){
+  var row = document.querySelector("#c_<%= j @card.id %>")
+  row.remove()
+}
+else {
+}

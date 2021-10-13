@@ -1,0 +1,15 @@
+<h3>Seach bar</h3>
+  <%= form_tag(resource_name, method: :get) do %>
+    <%= text_field_tag(:name, params[:name]) %>
+    <select name="faction">
+      <option value="">Faction</option>
+      <option value="Brujah">Brujah</option>
+      <option value="Toreador">Toreador</option>
+    </select>
+    <select name = "card_type">
+      <option value="">Type</option>
+      <option value="Character">Character</option>
+      <option value="Action">Action</option>
+    </select>
+    <%= submit_tag ("Search") %>
+  <% end %>

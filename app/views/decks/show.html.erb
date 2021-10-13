@@ -1,0 +1,20 @@
+<% provide(:title, 'Deck') %>
+<h1><%= @deck.name %></h1>
+
+<%= form_tag(deck_path(@deck), method: :patch) do %>
+  <%= text_field_tag(:deck_name, params[:deck_name]) %>
+  <%= hidden_field_tag :d_id, @deck.id %>
+  <%= submit_tag ("Update deck name") %>
+<% end %>
+
+<%= render 'decks/agendas' %>
+
+<%= render 'decks/havens' %>
+
+<%= render 'decks/characters' %>
+
+<%= render 'decks/library' %>
+
+<%= render 'shared/search', resource_name: :deck %>
+
+<%= render 'shared/card_list' %>
