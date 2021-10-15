@@ -13,6 +13,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.15'
 gem 'bootsnap', '>= 1.4.4', require: false
 
+group :production do
+  gem 'pg', '>=1.2.3'
+end
+
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
