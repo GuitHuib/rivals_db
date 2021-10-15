@@ -1,9 +1,11 @@
 <div id="characters">
-  <h2>Characters</h2>
-  <h1>Card count: <%= @characters.length %></h1>
+  <h3>Characters: <span id="Character-count"><%= @characters.length %></span></h3>
+  <div class="">
+    7 per deck
+  </div>
   <div class="card-container">
     <% @characters.uniq.each do |card| %>
-      <%= render 'decks/card', card: card, card_count: @characters.select{|c| c.name == card.name}.length %>
+      <%= render 'decks/deckCard', card: card, card_count: @characters.where(name: card.name).length %>
     <% end %>
   </div>
 </div>

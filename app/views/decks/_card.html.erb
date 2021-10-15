@@ -1,12 +1,28 @@
-<div id="c_<%= card.id %>" class="row">
-  <div class="col-md-2 name ">
-    <%= card.name %>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to card.name, card, remote:true %>
   </div>
-  <div class="col-md-2 faction">
+  <div class="col-md-2">
     <%= card.faction %>
   </div>
-  <div class="col-md-2 count">
-    <%= card_count %>
+  <div class="col-md-2">
+    <%= card.card_type %>
   </div>
-
+  <div class="col-md-2">
+    <%= card.blood %>
+  </div>
+  <div class="col-md-2">
+    <%= form_with(url: decklists_path, local: false) do |f| %>
+      <%= hidden_field_tag :c_id, card.id %>
+      <%= hidden_field_tag :d_id, id %>
+      <%= f.submit "+1", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-2">
+    <%= form_with(url: edit_deck_path(id), local: false, method: :get) do |f| %>
+      <%= hidden_field_tag :c_id, card.id %>
+      <%= f.submit "-1", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
+<div id="card<%= card.id %>"></div>

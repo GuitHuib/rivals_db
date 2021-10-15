@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_151901) do
+ActiveRecord::Schema.define(version: 2021_10_15_145935) do
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_151901) do
     t.integer "social"
     t.integer "mental"
     t.string "disciplines"
-    t.string "set"
+    t.string "product"
     t.text "text"
     t.string "attack_type"
     t.string "reaction_type"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_151901) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "remember_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "decklists", "cards"

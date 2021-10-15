@@ -1,0 +1,6 @@
+var list = $("#card-list")
+var results = $(".results")
+results.empty()
+<% @cards.each do |card| %>
+  results.append("<%= escape_javascript(render 'decks/card', card: card, id: @deck.id) %>")
+<% end %>

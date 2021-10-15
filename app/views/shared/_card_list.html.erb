@@ -1,4 +1,4 @@
-<div class="card-list">
+<div id="card-list">
   <div class="row">
     <div class="col-md-2">
       Name
@@ -16,7 +16,10 @@
       Add to Deck
     </div>
   </div>
-  <% @cards.each do |card| %>
-    <%= render card, deck: @deck %>
+  <div class="results">
+    <% @cards.each do |card| %>
+      <%= render 'decks/card', id: @deck.id, card:card %>
     <% end %>
+  </div>
+
 </div>

@@ -1,13 +1,25 @@
 <% provide(:title, 'Cards') %>
 <h1>All Cards</h1>
 
-<%= render 'shared/search', resource_name: :cards %>
+<%= form_with url: cards_path, method: :get, local: false do |f| %>
+<%= render 'shared/search', :f => f %>
+<% end %>
 
-<%= render @cards %>
-<ul>
-  <% @cards.each do |card| %>
-    <li>
-      <%= link_to card.name, card %>
-    </li>
-  <% end %>
-</ul>
+
+<div id="card-list">
+  <div class="row">
+    <div class="col-md-4">
+      Name
+    </div>
+    <div class="col-md-4">
+      Faction
+    </div>
+    <div class="col-md-4">
+      Type
+    </div>
+  </div>
+<div id="card-list">
+  <div class="results">
+    <%= render @cards %>
+  </div>
+</div>

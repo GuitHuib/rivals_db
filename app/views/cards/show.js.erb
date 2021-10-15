@@ -1,0 +1,10 @@
+<%# find card image and append to card row %>
+var image = '<%= image_tag "#{@card.name}.jpeg" %>'
+var elem = $("#card<%= j @card.id %>")
+
+if (elem.is(':empty')){
+  elem.append(image)
+}
+else {
+  elem.empty()
+}

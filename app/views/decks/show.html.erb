@@ -2,10 +2,12 @@
 <h1><%= @deck.name %></h1>
 
 <%= form_tag(deck_path(@deck), method: :patch) do %>
-  <%= text_field_tag(:deck_name, params[:deck_name]) %>
-  <%= hidden_field_tag :d_id, @deck.id %>
-  <%= submit_tag ("Update deck name") %>
+  <%= text_field_tag(:name, "Name your deck") %>
+  <%= submit_tag ("Save deck name") %>
 <% end %>
+
+<%= link_to "delete", @deck, method: :delete,
+                                       data: { confirm: "You sure?" } %>
 
 <%= render 'decks/agendas' %>
 
@@ -15,6 +17,9 @@
 
 <%= render 'decks/library' %>
 
-<%= render 'shared/search', resource_name: :deck %>
+<%= form_with url: 'decks/search', method: :get, local: false do |f| %>
+<%= hidden_field_tag :d_id, @deck.id %>
+<%= render 'shared/search', :f => f%>
+<% end %>
 
 <%= render 'shared/card_list' %>

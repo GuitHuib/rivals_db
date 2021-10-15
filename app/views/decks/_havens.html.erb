@@ -1,10 +1,11 @@
 <div id="havens">
-  <h2>Haven</h2>
-  <h1>Card count: <%= @havens.length %></h1>
+  <h3>Havens: <span id="Haven-count"><%= @havens.length %></span></h3>
+  <div class="">
+    1 per deck
+  </div>
   <div class="card-container">
     <% @havens.uniq.each do |card| %>
-      <%= render card, card_count: @havens.select{|c| c.name == card.name}.length %>
+      <%= render 'decks/deckCard', card: card, card_count: @havens.where(name: card.name).length %>
     <% end %>
   </div>
-
 </div>

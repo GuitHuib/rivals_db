@@ -13,7 +13,6 @@
 </ul>
 
 <%= form_with model: @deck do |f| %>
-  <%= f.text_field :name, placeholder: "Deck Name" %>
   <%= hidden_field_tag :id, @user.id %>
-  <%= submit_tag "New Deck", class: "btn btn-primary" %>
+  <%= f. submit "New Deck", class: "btn btn-primary" %>
 <% end %>

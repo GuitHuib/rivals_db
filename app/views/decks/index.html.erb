@@ -6,6 +6,6 @@
     <li>
       <%= link_to deck.name, deck %>
     </li>
+    <li><%= deck.user.username %></li>
   <% end %>
-  <%= link_to "New Deck", new_deck_path %>
 </ul>
