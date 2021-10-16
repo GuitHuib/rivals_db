@@ -1,10 +1,9 @@
-<% provide(:title, 'Cards') %>
+<% provide(:title, 'Card Search') %>
 <h1>All Cards</h1>
 
 <%= form_with url: cards_path, method: :get, local: false do |f| %>
 <%= render 'shared/search', :f => f %>
 <% end %>
-
 
 <div id="card-list">
   <div class="row">

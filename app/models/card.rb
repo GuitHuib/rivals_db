@@ -2,7 +2,7 @@ class Card < ApplicationRecord
   has_many :decklists
   has_many :decks, through: :decklists
 
-  def self.search(name, faction, card_type, blood_requirement, blood, physical, social, mental, disciplines, text, product)
+  def self.search(name, faction, card_type, blood_requirement, blood, physical, social, mental, attack_type, disciplines, text, product)
     card = Card.all
     if name.present?
       card = Card.where("name LIKE ?", "%" + name + "%")
@@ -46,6 +46,11 @@ class Card < ApplicationRecord
     end
     if mental.present?
       card = card.where("mental = ?", mental)
+    else
+      card = card
+    end
+    if attack_type.present?
+      card = card.where("attack_type = ?", attack_type)
     else
       card = card
     end

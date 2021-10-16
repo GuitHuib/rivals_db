@@ -8,10 +8,10 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
-    @agendas = @deck.cards.where(card_type: "Agenda")
-    @havens = @deck.cards.where(card_type: "Haven")
-    @characters = @deck.cards.where(card_type: "Character")
-    @library = @deck.cards.where.not(card_type: ["Agenda", "Haven", "Character"])
+    @agendas = @deck.cards.where(card_type: "Agenda").order(:name => :asc)
+    @havens = @deck.cards.where(card_type: "Haven").order(:name => :asc)
+    @characters = @deck.cards.where(card_type: "Character").order(:blood => :desc)
+    @library = @deck.cards.where.not(card_type: ["Agenda", "Haven", "Character"]).order(:name => :asc)
     @cards = Card.all
   end
 
@@ -55,10 +55,11 @@ class DecksController < ApplicationController
                          params[:physical],
                          params[:social],
                          params[:mental],
+                         params[:attack_type],
                          params[:disciplines],
                          params[:text],
                          params[:product],
-                         )
+                       )
     respond_to do |format|
       format.js
       format.html

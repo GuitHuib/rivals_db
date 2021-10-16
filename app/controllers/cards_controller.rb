@@ -9,6 +9,7 @@ class CardsController < ApplicationController
                          params[:physical],
                          params[:social],
                          params[:mental],
+                         params[:attack_type],
                          params[:disciplines],
                          params[:text],
                          params[:product],
@@ -23,7 +24,7 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     respond_to do |format|
       format.js
-      format.html 
+      format.html
     end
   end
 

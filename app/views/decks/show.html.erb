@@ -1,25 +1,38 @@
-<% provide(:title, 'Deck') %>
-<h1><%= @deck.name %></h1>
+<% provide(:title, 'Decklist') %>
 
-<%= form_tag(deck_path(@deck), method: :patch) do %>
-  <%= text_field_tag(:name, "Name your deck") %>
-  <%= submit_tag ("Save deck name") %>
-<% end %>
+<div class="row">
+  <div class="col-md-6">
+    <h1><%= @deck.name %></h1>
+  </div>
+  <div class="col-md-6">
+    <%= form_tag(deck_path(@deck), method: :patch) do %>
+      <%= text_field_tag(:name, "Name your deck") %>
+      <%= submit_tag ("Save deck name") %>
+    <% end %>
 
-<%= link_to "delete", @deck, method: :delete,
-                                       data: { confirm: "You sure?" } %>
+    <%= link_to "Delete deck", @deck, method: :delete,
+                                           data: { confirm: "Delete deck?" } %>
+  </div>
+</div>
 
-<%= render 'decks/agendas' %>
+<div class="row">
+  <div class="col-md-6">
+    <%= render 'decks/agendas' %>
+    <%= render 'decks/havens' %>
+    <%= render 'decks/characters' %>
+  </div>
+  <div class="col-md-6">
+    <%= render 'decks/library' %>
+  </div>
+</div>
 
-<%= render 'decks/havens' %>
+<div class="search-bar">
+  <%= form_with url: 'decks/search', method: :get, local: false do |f| %>
+  <%= hidden_field_tag :d_id, @deck.id %>
+  <%= render 'shared/search', :f => f%>
+  <% end %>
+</div>
 
-<%= render 'decks/characters' %>
-
-<%= render 'decks/library' %>
-
-<%= form_with url: 'decks/search', method: :get, local: false do |f| %>
-<%= hidden_field_tag :d_id, @deck.id %>
-<%= render 'shared/search', :f => f%>
-<% end %>
-
-<%= render 'shared/card_list' %>
+<div class="">
+  <%= render 'shared/card_list' %>
+</div>
