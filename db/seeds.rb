@@ -1,10 +1,4 @@
-User.create(username: "Ryan",
-            email: "example@example.com",
-            password: "password",
-            password_confirmation: "password",
-            activated: true,
-            activated_at: <%= Time.zone.now %>
-            )
+
 Card.create( name:    "Hydra",
              card_type: "Character",
              faction: "Brujah",
@@ -1414,5 +1408,4 @@ Card.create(name:    "Lightning Strike",
             mental: nil,
             disciplines: nil,
             product: "Core Set",
-            text: "If this party has 2+(Celerity), this attack ignores all (shield)."
-           )
+            text: "If this party has 2+(Celerity), this attack ignores all (shield).")
