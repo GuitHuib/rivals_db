@@ -6,26 +6,28 @@ if (element) {
   element.innerHTML = num + 1;
 }
 else if (type === "Agenda") {
-  document.querySelector("#agendas > .card-container").insertAdjacentHTML("beforeend",
-  "<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
+  $("#agendas > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
 }
 else if (type === "Haven") {
-  document.querySelector("#havens > .card-container").insertAdjacentHTML("beforeend",
-  "<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
+  $("#havens > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
 }
 else if (type === "Character") {
-  document.querySelector("#characters > .card-container").insertAdjacentHTML("beforeend",
-  "<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
+  $("#characters > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
 }
-else if (type !== ["Agenda", "Haven", "Character"]){
-  document.querySelector("#library > .card-container").insertAdjacentHTML("beforeend",
-  "<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
+else if (type.includes("Attack") || type.includes("Defense")){
+  $("#attack > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
 }
 else {
-  alert("oops, Ryan screwed somethin up. Let him know what happened, the moron.")
+  $("#action > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
 }
-if (type != "Character" && type != "Agenda" && type != "Haven") {
-  var counter = document.querySelector("#Library-count")
+
+if (type.includes("Attack") || type.includes("Defense")) {
+  var counter = document.querySelector("#Attack-count")
+  var i = parseInt(counter.innerHTML)
+  counter.innerHTML = i + 1;
+}
+else if (type.includes("Action")) {
+  var counter = document.querySelector("#Action-count")
   var i = parseInt(counter.innerHTML)
   counter.innerHTML = i + 1;
 }

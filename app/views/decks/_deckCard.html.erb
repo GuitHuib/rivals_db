@@ -1,15 +1,20 @@
 <div id="c_<%= card.id %>" class="row">
-  <div class="col-md-4 name ">
-    <%= card.name %>
-  </div>
-  <div class="col-md-4 faction">
-    <%= card.faction %>
-  </div>
-  <div class="col-md-2 count">
-    <%= card.blood %>
-    <%= card.attack_type %>
-  </div>
-  <div class="col-md-2 count">
+  <div class="col-md-1 col-xs-1 count">
     <%= card_count %>
   </div>
+  <div class="col-md-6 col-xs-6 name ">
+    <% if card.card_type === "Character" %>
+      <%= card.name %> (<%= card.faction %>)
+    <% else %>
+      <%= card.name %>
+    <% end %>
+  </div>
+  <!-- <div class="col-md-2 col-xs-2 ">
+    <% if card.card_type.include? "Defense" %>
+      <%= card.reaction_type %>
+    <% else %>
+      <%= card.blood %>
+      <%= card.attack_type %>
+    <% end %>
+  </div> -->
 </div>

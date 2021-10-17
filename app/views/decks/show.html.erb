@@ -1,38 +1,53 @@
 <% provide(:title, 'Decklist') %>
-
+<%# Set page as one row of two columns %>
 <div class="row">
-  <div class="col-md-6">
-    <h1><%= @deck.name %></h1>
+  <div class="col-md-5 col-sm-12 col-xs-12">
+    <%# Fix decklist to left side of screen %>
+    <div class="deck-info">
+      <h1><%= @deck.name %></h1>
+      <% if current_user?(@deck.user) %>
+        <%= render 'decks/nameForm', deck: @deck %>
+      <% end %>
+    </div>
+    <div class="decklist">
+      <%# split deck list by card type %>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <%= render 'decks/cardGroup', cards: @agendas, type: "Agenda", id: "agendas", title: "Agenda" %>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <%= render 'decks/cardGroup', cards: @havens, type: "Haven", id: "havens", title: "Haven" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <%= render 'decks/cardGroup', cards: @characters, type: "Character", id: "characters", title: "Characters" %>
+          <%= render 'decks/cardGroup', cards: @attacks, type: "Attack", id: "attack", title: "Attacks/Reactions" %>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <%= render 'decks/cardGroup', cards: @actions, type: "Action", id: "action", title: "Action" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <%= form_tag(deck_path(@deck), method: :patch) do %>
-      <%= text_field_tag(:name, "Name your deck") %>
-      <%= submit_tag ("Save deck name") %>
-    <% end %>
 
-    <%= link_to "Delete deck", @deck, method: :delete,
-                                           data: { confirm: "Delete deck?" } %>
+  <% if current_user?(@deck.user) %>
+  <div class="col-md-7 hidden-xs col-xs-12 decklist">
+    <%= image_tag 'rivals_bg', class: "dynamic-img" %>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-    <%= render 'decks/agendas' %>
-    <%= render 'decks/havens' %>
-    <%= render 'decks/characters' %>
+  <div class="col-md-7 col-sm-12 col-xs-12 decklist">
+    <%# Card search on right side %>
+    <div class="search-bar split-form">
+      <%# render search form with appropriate url path %>
+      <%= form_with url: 'decks/search', method: :get, local: false do |f| %>
+      <%= hidden_field_tag :d_id, @deck.id %>
+      <%= render 'shared/search', :f => f%>
+      <% end %>
+    </div>
+    <%# Card list on right side %>
+    <div class="decklist">
+      <%= render 'shared/card_list' %>
+    </div>
   </div>
-  <div class="col-md-6">
-    <%= render 'decks/library' %>
-  </div>
-</div>
-
-<div class="search-bar">
-  <%= form_with url: 'decks/search', method: :get, local: false do |f| %>
-  <%= hidden_field_tag :d_id, @deck.id %>
-  <%= render 'shared/search', :f => f%>
   <% end %>
-</div>
-
-<div class="">
-  <%= render 'shared/card_list' %>
 </div>

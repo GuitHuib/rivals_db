@@ -8,30 +8,71 @@ $gray-medium-light: #eaeaea;
  -webkit-box-sizing: border-box;
  box-sizing:         border-box;
 }
-
 /* universal */
-
 body {
-  padding-left: 60px;
-  padding-top: 60px;
+  // background: linear-gradient(183deg, rgba(141,35,46,0.5) 1%, rgba(141,35,46,0) 60%),
+  //             linear-gradient(250deg, rgba(141,35,46,0) 21%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+  //             linear-gradient(250deg, rgba(141,35,46,0) 23%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+  //             linear-gradient(250deg, rgba(141,35,46,0) 25%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+  //             repeating-linear-gradient(179deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 5px);;
+  //
+  // background-color: #0b232f;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // color: #fff;
+  // background-color: #d1b59d;
+  padding: 60px 0 0;
 }
-
 section {
   overflow: auto;
 }
-
 textarea {
   resize: vertical;
 }
+input[type=text] {
+  width: 100%;
+}
+.content {
+  margin: 15px 20px;
+}
+
 
 /* Home page */
 .jumbotron {
-  // background-image: url(Hydra.jpeg);
-  // background-repeat: no-repeat;
-  // background-size: contain;
-  height: 50vh;
+  background-image: url(rivals_bg_3.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  margin-top: 5vh;
 }
 
+/* Card styling */
+.card_pic {
+  position: absolute;
+  left: 75px;
+  z-index: 1;
+}
+/* Deck list styling */
+.deck-info {
+  margin-bottom: 20px;
+  input {
+    margin: 5px 0;
+  }
+  a, form {
+   display: inline;
+ }
+ a {
+   padding-left: 30px;
+ }
+}
+.decklist {
+  margin: auto;
+  padding: 0 10px 50px 10px;
+}
+.dynamic-img {
+  width: 100%;
+}
 /* Search bar styling */
 input {
   margin: 0 10px;
@@ -39,10 +80,40 @@ input {
 select {
   margin: 0 10px;
 }
-.search-bar {
-  margin: 20px;
+.padding-0 {
+  padding: 0;
+}
+.sm-btn {
+  background: #ccc;
+  margin: 1px 0;
+  padding: 2px 3px;
+}
+.split-form {
+  input {
+    margin: 10px 0;
+  }
+  [type=submit] {
+    padding: 0 30px;
+  }
+  select {
+    margin: 10px 0;
+  }
 }
 
+/* Card list styling */
+.list-header {
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+.card-row {
+  border-collapse: collapse;
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: #e0dede;
+  }
+}
 
 /* miscellaneous */
 
@@ -52,4 +123,11 @@ select {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+/* media queries */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 1.2rem;
+  }
 }

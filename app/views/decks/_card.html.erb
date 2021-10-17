@@ -1,28 +1,83 @@
-<div class="row">
-  <div class="col-md-2">
+<div class="row card-row text-center">
+  <div class="col-md-3 col-sm-2 col-xs-4 text-left">
     <%= link_to card.name, card, remote:true %>
   </div>
-  <div class="col-md-2">
-    <%= card.faction %>
+  <div class="col-md-1 col-sm-1 col-xs-2">
+    <% if card.faction && card.faction != "Neutral" %>
+      <%= image_tag card.faction %>
+    <% else %>
+      -
+    <% end %>
   </div>
-  <div class="col-md-2">
-    <%= card.card_type %>
-  </div>
-  <div class="col-md-2">
+
+  <div class="col-md-1 col-sm-1 col-xs-1">
     <%= card.blood %>
+    <%= card.blood_requirement %>
   </div>
-  <div class="col-md-2">
-    <%= form_with(url: decklists_path, local: false) do |f| %>
-      <%= hidden_field_tag :c_id, card.id %>
-      <%= hidden_field_tag :d_id, id %>
-      <%= f.submit "+1", class: "btn btn-primary" %>
+  <div class="col-md-2 col-sm-3 hidden-xs">
+    <% if card.card_type === "Character" %>
+      <%= card.physical %>/
+      <%= card.social %>/
+      <%= card.mental %>
+    <% else %>
+      -
     <% end %>
   </div>
-  <div class="col-md-2">
-    <%= form_with(url: edit_deck_path(id), local: false, method: :get) do |f| %>
-      <%= hidden_field_tag :c_id, card.id %>
-      <%= f.submit "-1", class: "btn btn-primary" %>
+  <div class="col-md-2 col-sm-2 col-xs-3">
+    <% if card.card_type.include? "Attack" %>
+      <% if card.attack_type.include? "Ranged" %>
+        <%= image_tag 'Ranged' %>
+      <% end %>
+      <% if card.attack_type.include? "Physical" %>
+        <%= image_tag 'Physical' %>
+      <% end %>
+      <% if card.attack_type.include? "Social" %>
+        <%= image_tag 'Social' %>
+      <% end %>
+      <% if card.attack_type.include? "Mental" %>
+        <%= image_tag 'Mental' %>
+      <% end %>
+    <% end %>
+    /
+    <% if card.card_type.include? "Defense" %>
+      <% if card.reaction_type.include? "Ranged" %>
+        <%= image_tag 'Ranged' %>
+      <% end %>
+      <% if card.reaction_type.include? "Physical" %>
+        <%= image_tag 'Physical' %>
+      <% end %>
+      <% if card.reaction_type.include? "Social" %>
+        <%= image_tag 'Social' %>
+      <% end %>
+      <% if card.reaction_type.include? "Mental" %>
+        <%= image_tag 'Mental' %>
+      <% end %>
     <% end %>
   </div>
+  <div class="col-md-2 col-sm-2  hidden-xs">
+    <%= card.damage %>
+    <%= card.shield %>
+  </div>
+
+  <div class="col-md-1 col-sm-2">
+    <div class="row">
+      <div class="col-md-6 col-xs-3 padding-0">
+        <%= form_with(url: decklists_path, local: false) do |f| %>
+          <%= hidden_field_tag :c_id, card.id %>
+          <%= hidden_field_tag :d_id, id %>
+          <%= f.submit "+1", class: "btn sm-btn" %>
+        <% end %>
+      </div>
+      <div class="col-md-6 col-xs-3 padding-0">
+        <%= form_with(url: edit_deck_path(id), local: false, method: :get) do |f| %>
+          <%= hidden_field_tag :c_id, card.id %>
+          <%= f.submit "-1", class: "btn sm-btn" %>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
-<div id="card<%= card.id %>"></div>
+<div id="card<%= card.id %>" class="card_pic"></div>

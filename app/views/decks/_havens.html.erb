@@ -1,8 +1,9 @@
+
+<%# Refactored to generelized cardGroup partial. Delete after thorough testing %>
+
 <div id="havens">
-  <h3>Havens: <span id="Haven-count"><%= @havens.length %></span></h3>
-  <div class="">
-    1 per deck
-  </div>
+  <h4>Haven (<span id="Haven-count"><%= @havens.length %></span>)</h4>
+
   <div class="card-container">
     <% @havens.uniq.each do |card| %>
       <%= render 'decks/deckCard', card: card, card_count: @havens.where(name: card.name).length %>

@@ -1,0 +1,10 @@
+<div id=<%= id %>>
+  <div class="row">
+    <h4><%= title %> (<span id="<%= type %>-count"><%= cards.length %></span>)</h4>
+  </div>
+  <div class="card-container row">
+    <% cards.uniq.each do |card| %>
+      <%= render 'decks/deckCard', card: card, card_count: cards.where(name: card.name).length %>
+    <% end %>
+  </div>
+</div>
