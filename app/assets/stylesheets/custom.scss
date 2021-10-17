@@ -35,7 +35,9 @@ input[type=text] {
 .content {
   margin: 15px 20px;
 }
-
+.right {
+  position: fixed;
+}
 
 /* Home page */
 .jumbotron {
@@ -54,6 +56,13 @@ input[type=text] {
   z-index: 1;
 }
 /* Deck list styling */
+.deck-main {
+  // background-image: url(vtm-2.jpeg);
+  // background-position: center top;
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-attachment: fixed;
+}
 .deck-info {
   margin-bottom: 20px;
   input {
@@ -126,8 +135,11 @@ select {
 }
 
 /* media queries */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   body {
     font-size: 1.2rem;
+  }
+  .right {
+    position: inherit;
   }
 }

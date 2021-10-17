@@ -1,5 +1,6 @@
 var element = document.querySelector("#c_<%= j @card.id %> > .count")
 var type = "<%= j @card.card_type %>"
+var first_type = type.replace(/,.*/, '')
 
 if (element) {
   num = parseInt(element.innerHTML)
