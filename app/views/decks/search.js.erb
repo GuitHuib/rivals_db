@@ -4,3 +4,4 @@ results.empty()
 <% @cards.each do |card| %>
   results.append("<%= escape_javascript(render 'decks/card', card: card, id: @deck.id) %>")
 <% end %>
+document.getElementById("search-form").reset()

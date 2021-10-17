@@ -1,7 +1,9 @@
-var element = document.querySelector("#c_<%= j @card.id %> > .count")
-var count = parseInt(element.innerHTML)
-var type = "<%= j @card.card_type %>"
+var element = document.querySelector("#c_<%= j @card.id %> > .count");
+var count = parseInt(element.innerHTML);
+var type = "<%= j @card.card_type %>".toLowerCase();
+var first_type = type.replace(/,.*/, '');
 
+/* Decrement/remove card count */
 if (count > 1){
   element.innerHTML = count - 1
 }
@@ -11,20 +13,16 @@ else if (element){
 else {
   alert("You found an error! Let Ryan know how you broke his site!")
 }
+/* Decrement main counter */
 if (count > 0) {
-  if (type.includes("Action")) {
-    var counter = document.querySelector("#Action-count")
-    var i = parseInt(counter.innerHTML)
-    counter.innerHTML = i - 1;
-  }
-  else if (type.includes("Attack") || type.includes("Defense")) {
-    var counter = document.querySelector("#Attack-count")
-    var i = parseInt(counter.innerHTML)
-    counter.innerHTML = i - 1;
+  if (type.includes("attack") || type.includes("defense")) {
+    var counter = $("#attack-count")
+    var i = parseInt(counter.html())
+    counter.html(i - 1);
   }
   else {
-    var counter = document.querySelector("#" + type + "-count")
-    var i = parseInt(counter.innerHTML)
-    counter.innerHTML = i - 1;
+    var counter = $(`#${first_type}-count`)
+    var i = parseInt(counter.html())
+    counter.html(i - 1);
   }
 }
