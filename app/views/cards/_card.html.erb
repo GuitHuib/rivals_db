@@ -1,15 +1,53 @@
-<div class="row card-row">
-  <div class="col-md-2">
-    <%= link_to card.name, card, remote:true %>
+<div class="row card-row text-center">
+  <div class="col-md-3 col-sm-2 col-xs-4 text-left">
+    <%= link_to card.name, card, remote: true %>
   </div>
-  <div class="col-md-2">
-    <%= card.faction %>
+  <div class="col-md-1 col-sm-1 hidden-xs">
+    <% if card.faction && card.faction != "Neutral" %>
+      <%= image_tag card.faction %>
+    <% else %>
+      -
+    <% end %>
   </div>
-  <div class="col-md-2">
-    <%= card.card_type %>
-  </div>
-  <div class="col-md-2">
+
+  <div class="col-md-1 col-sm-1 hidden-xs">
     <%= card.blood %>
+    <%= card.blood_requirement %>
   </div>
+  <div class="col-md-2 col-sm-3 hidden-xs">
+    <% if card.card_type === "Character" %>
+      <%= card.physical %>/
+      <%= card.social %>/
+      <%= card.mental %>
+    <% else %>
+      -
+    <% end %>
+  </div>
+  <div class="col-md-2 col-sm-2 col-xs-4">
+    <% if card.card_type.include? "Attack" %>
+      <%= render 'shared/renderIcon', types: card.attack_type.split(",") %>
+    <% end %>
+    /
+    <%# REFACTOR - why doesn't renderIcon partial render correctly here? %>
+    <% if card.card_type.include? "Defense" %>
+      <% if card.reaction_type.include? "Ranged" %>
+        <%= image_tag 'Ranged' %>
+      <% end %>
+      <% if card.reaction_type.include? "Physical" %>
+        <%= image_tag 'Physical' %>
+      <% end %>
+      <% if card.reaction_type.include? "Social" %>
+        <%= image_tag 'Social' %>
+      <% end %>
+      <% if card.reaction_type.include? "Mental" %>
+        <%= image_tag 'Mental' %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-3 col-sm-2  col-xs-4">
+    <%= card.damage %>
+    <%= card.shield %>
+  </div>
+
 </div>
-<div id="card<%= card.id %>"></div>
+<div id="card<%= card.id %>" class="card-pic"></div>

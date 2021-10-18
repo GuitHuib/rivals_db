@@ -1,9 +1,10 @@
 <nav>
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-            aria-expanded="false">
+            data-bs-toggle="collapse"
+            data-bs-target="#header-navbar-collapse-1"
+            aria-expanded="false"
+            aria-controls="#header-navbar-collapse-1" >
       <span class="sr-only">Toggle navigaton</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -11,19 +12,18 @@
     </button>
   </div>
   <ul class= "nav navbar-nav navbar-right collapse navbar-collapse"
-      id="bs-example-navbar-collapse-1">
+      id="header-navbar-collapse-1">
       <li> <%= link_to "Card List",    cards_path %></li>
-      <li> <%= link_to "Deck List",    decks_path %></li>
+      <li> <%= link_to "Deck Lists",    decks_path %></li>
 
     <% if logged_in? %>
-      <li><%= link_to "Users", users_path %></li>
       <li class= "dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" id="navbarDarkDropdownMenuLink" role="button" aria-expanded="false">
           Account <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
           <li><%= link_to "My Decks", current_user %></li>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <li><%= link_to "Edit Account", edit_user_path(current_user) %></li>
           <li class="divider"></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         </ul>

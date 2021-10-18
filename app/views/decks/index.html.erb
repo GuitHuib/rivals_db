@@ -1,11 +1,17 @@
-<% provide(:title, 'Decks') %>
-<h1>All Decks</h1>
+<% provide(:title, 'User') %>
+<div class="container">
+  <div class="row p-20">
+    <div class="col-md-4 white">
+    </div>
+    <div class="col-md-3 name-form">
 
-<ul class="decks">
+    </div>
+  </div>
   <% @decks.each do |deck| %>
-    <li>
-      <%= link_to deck.name, deck %>
-    </li>
-    <li><%= deck.user.username %></li>
+
+    <%= link_to deck do %>
+      <%= render 'users/deckRow', deck: deck %>
+    <% end %>
   <% end %>
-</ul>
+
+</div>

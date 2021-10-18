@@ -17,6 +17,10 @@ class DecksController < ApplicationController
     @cards      = Card.all.where(card_type: "Haven")
   end
 
+  def new
+    redirect_to root_path
+  end
+
   def create
     user = User.find(params[:id])
     @deck = user.decks.new(deck_params)

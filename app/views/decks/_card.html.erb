@@ -1,8 +1,8 @@
 <div class="row card-row text-center">
-  <div class="col-md-3 col-sm-2 col-xs-4 text-left">
+  <div class="col-md-3 col-sm-2 col-xs-5 text-left">
     <%= link_to card.name, card, remote: true %>
   </div>
-  <div class="col-md-1 col-sm-1 col-xs-2">
+  <div class="col-md-1 col-sm-1 hidden-xs">
     <% if card.faction && card.faction != "Neutral" %>
       <%= image_tag card.faction %>
     <% else %>
@@ -10,7 +10,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-1 col-sm-1 col-xs-1">
+  <div class="col-md-1 col-sm-1 hidden-xs">
     <%= card.blood %>
     <%= card.blood_requirement %>
   </div>
@@ -23,11 +23,11 @@
       -
     <% end %>
   </div>
-  <div class="col-md-2 col-sm-2 col-xs-3">
+  <div class="col-md-2 col-sm-2 col-xs-4">
     <% if card.card_type.include? "Attack" %>
       <%= render 'shared/renderIcon', types: card.attack_type.split(",") %>
     <% end %>
-    /
+
     <%# REFACTOR - why doesn't renderIcon partial render correctly here? %>
     <% if card.card_type.include? "Defense" %>
       <% if card.reaction_type.include? "Ranged" %>
@@ -44,27 +44,11 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col-md-2 col-sm-2  hidden-xs">
+  <div class="col-md-2 col-sm-2 hidden-xs">
     <%= card.damage %>
     <%= card.shield %>
   </div>
 
-  <div class="col-md-1 col-sm-1 col-xs-2">
-    <div class="row">
-      <div class="col-md-6 col-xs-12 padding-0">
-        <%= form_with(url: decklists_path, local: false) do |f| %>
-          <%= hidden_field_tag :c_id, card.id %>
-          <%= hidden_field_tag :d_id, id %>
-          <%= f.submit "+1", class: "btn sm-btn" %>
-        <% end %>
-      </div>
-      <div class="col-md-6 col-xs-12 padding-0">
-        <%= form_with(url: edit_deck_path(id), local: false, method: :get) do |f| %>
-          <%= hidden_field_tag :c_id, card.id %>
-          <%= f.submit "-1", class: "btn sm-btn" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render 'decks/button', card: card, id: id %>
 </div>
 <div id="card<%= card.id %>" class="card-pic"></div>

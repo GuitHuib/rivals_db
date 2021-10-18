@@ -8,13 +8,14 @@
       <%= form_with model: @deck do |f| %>
         <%= f.text_field :name, placeholder: "Name new deck" %>
         <%= hidden_field_tag :id, @user.id %>
-        <%= f. submit "New Deck", class: "btn btn-primary m-10" %>
+        <%= f. submit "New Deck", class: "btn m-10" %>
       <% end %>
     </div>
   </div>
   <% @decks.each do |deck| %>
-    <%= render 'deckRow', deck: deck %>
+    <%= link_to deck do %>
+      <%= render 'deckRow', deck: deck %>
+    <% end %>
   <% end %>
-
 
 </div>

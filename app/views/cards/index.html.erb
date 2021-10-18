@@ -4,7 +4,16 @@
   <div class="row">
     <div class="col-lg-8 col-md-7 col-xs-12 centered">
       <div class="hidden-xs">
+        <%= image_tag 'vtmBannerB', class: "dynamic-img" %>
       </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+      <div class="white text-center">
+        <h1>Card Search</h1>
+      </div>
+
       <%# Card search on right side %>
       <div class="search-bar split-form">
         <%# render search form with appropriate url path %>
@@ -13,29 +22,15 @@
         <% end %>
       </div>
     </div>
-
-    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-      image here
-    </div>
   </div>
 
-  <div class="list-header">
-    <div class="row">
-      <div class="col-md-4">
-        Name
-      </div>
-      <div class="col-md-4">
-        Faction
-      </div>
-      <div class="col-md-4">
-        Type
+  <div class="centered list">
+    <div class="card-list">
+      <%= render 'listHeader' %>
+
+      <div class="results">
+        <%= render @cards %>
       </div>
     </div>
   </div>
-  <div class="card-list">
-    <div class="results">
-      <%= render @cards %>
-    </div>
-  </div>
-
 </div>
