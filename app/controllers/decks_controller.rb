@@ -19,7 +19,7 @@ class DecksController < ApplicationController
 
   def create
     user = User.find(params[:id])
-    @deck = user.decks.build(deck_params)
+    @deck = user.decks.new(deck_params)
     if @deck.save
       @cards = Card.all
       redirect_to @deck
@@ -76,7 +76,7 @@ class DecksController < ApplicationController
 
   private
     def deck_params
-      params.permit(:name)
+      params.require(:deck).permit(:name)
     end
 
     def correct_user

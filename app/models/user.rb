@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   #model attributes
-  has_many :decks
+  has_many :decks, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   # Before action calls
   before_save :downcase_email

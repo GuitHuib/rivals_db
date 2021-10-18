@@ -1,0 +1,25 @@
+<div class="centered">
+  <%# split deck list by card type %>
+  <div class="row centered">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <%= render 'decks/cardGroup', cards: @agendas, type: "agenda", id: "agenda", title: "Agenda" %>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <%= render 'decks/cardGroup', cards: @havens, type: "haven", id: "haven", title: "Haven" %>
+    </div>
+  </div>
+  <div class="row centered">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <%= render 'decks/cardGroup', cards: @characters, type: "character", id: "character", title: "Characters" %>
+    </div>
+  </div>
+  <div class="row centered">
+    <h3>Library(<span id="library-count"><%= @library.length %></span>)</h3>
+    <div class="col-md-6 col-sm-6 col-xs-12 centered">
+      <%= render 'decks/cardGroup', cards: @attacks, type: "attack", id: "attack", title: "Attacks/Reactions" %>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 centered">
+      <%= render 'decks/cardGroup', cards: @actions, type: "action", id: "action", title: "Action" %>
+    </div>
+  </div>
+</div>

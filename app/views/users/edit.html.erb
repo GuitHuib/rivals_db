@@ -1,7 +1,17 @@
-<% provide(:title, 'Eidt profile') %>
-<h1>Edit profile</h1>
+<% provide(:title, 'Edit profile') %>
 
-<%= render 'form' %>
+<div class="user-info">
+  <div class="row pop-out">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="info">
+        <h2>Edit your profile</h2>
+      </div>
+      <%= render 'form', text: "Save changes" %>
 
-<%= link_to "Delete Profile", @user, method: :delete,
-                                       data: { confirm: "You sure? This will permanently delete your profile." } %>
+      <div class="offset">
+        <%= link_to "Delete Profile", @user, method: :delete,
+                                               data: { confirm: "Are you sure? This will permanently delete your profile." } %>
+      </div>
+    </div>
+  </div>
+</div>

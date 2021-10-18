@@ -1,0 +1,8 @@
+<div class="row">
+  <span class="bold"><%= type %></span>: <%= cards.count %>
+</div>
+<% cards.select('DISTINCT faction').each do |c| %>
+<div class="row">
+  <%= c.faction %>: <%= cards.where(faction: c.faction).length %>
+</div>
+<% end %>

@@ -17,7 +17,8 @@ body {
   background-color: #0b232f;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #d1b59d;
+  // background-color: #d1b59d;
+  height: 100vh;
   padding: 50px 0 0;
 }
 section {
@@ -29,7 +30,10 @@ textarea {
 input[type=text] {
   width: 100%;
 }
-.content {
+.container {
+  padding: 0 20px;
+  margin: 10px;
+  width: 100%;
 }
 .centered {
   margin: auto;
@@ -40,11 +44,42 @@ input[type=text] {
 .padding-0 {
   padding: 0;
 }
+.m-10 {
+  margin: 10px;
+}
+.p-20 {
+  padding: 20px;
+}
+.offset a {
+  margin-left: 20px;
+}
+/* Typography */
+.bold {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.white {
+  color: #ecf0f1;
+}
 /* nav styles */
 .navbar {
   margin-bottom: 0;
 }
-/* Login page */
+.fab {
+  width: 50px;
+}
+
+/* signup/login/edit style */
+.user-info {
+  background-image: url(red_moon);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  margin: auto;
+}
 .jumbotron {
   background-image: url(rivals_bg_3.jpeg);
   background-repeat: no-repeat;
@@ -87,20 +122,37 @@ input[type=text] {
   margin: 10px 0;
 }
 
-
-/* Card styling */
+/* Deck index styling */
+.deck-row {
+  background-color: #ccc;
+  border-radius: 10px;
+  max-width: 750px;
+  margin: 0 20px 30px;
+  padding: 30px;
+  a {
+    color: #600;
+    text-decoration: underline;
+  }
+}
+.name-form {
+  margin-top: 15px;
+  input[type=text] {
+    width: 50%;
+  }
+}
 
 /* Deck list styling */
 .deck-main {
   margin-top: 50px;
 }
-.image-holder {
-  margin-top: 20px;
-}
 .deck-info {
   margin-bottom: 20px;
   input {
+    color: #000;
     margin: 5px 0;
+  }
+  [type=text] {
+    width: 50%;
   }
   a, form {
    display: inline;
@@ -121,33 +173,51 @@ input {
 select {
   margin: 0 10px;
 }
-.search-bar {
-}
 .sm-btn {
   background: #ccc;
+  border: 1px solid #0b232f;
   margin: 1px 0;
   padding: 2px 3px;
+  width: 100%;
+  &:active {
+    background-color: #000;
+  }
 }
 .split-form {
   input {
+    background-color: #000;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #ecf0f1;
     margin: 10px 0;
   }
   [type=submit] {
     padding: 0 30px;
   }
   select {
+    background-color: #000;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #ecf0f1;
     margin: 10px 0;
+    padding: 2px;
   }
 }
 
 /* Card list styling */
+.card-list {
+  background-color: rgba(176, 164, 164, 0.5);
+  color: #000;
+  margin: auto;
+  padding: 20px;
+}
 .list-header {
   border-bottom: 2px solid #000;
   padding-bottom: 5px;
 }
 .list {
   a {
-    color: #333;
+    color: #000;
   }
 }
 .card-row {
@@ -159,7 +229,7 @@ select {
     background-color: #e0dede;
   }
 }
-.card_pic {
+.card-pic {
   position: absolute;
   left: 75px;
   z-index: 1;
@@ -167,12 +237,18 @@ select {
     height: 300px;
   }
 }
-
+.pic-link {
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-left: 0;
+  padding-left: 5px;
+  width: 100px;
+  a {
+    color: #0645AD;
+  }
+}
 /* footer */
 
-footer {
-
-}
 
 /* miscellaneous */
 
@@ -193,6 +269,10 @@ footer {
     position: inherit;
   }
 }
-@media only screen and (max-width: 768) {
-
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+  }
 }

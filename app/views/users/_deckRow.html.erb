@@ -1,0 +1,36 @@
+<div class="row deck-row">
+  <h2><%= link_to deck.name, deck %></h2>
+  <div class="row">
+
+    <div class="col-md-3 col-sm-2">
+      <div class="row">
+        <span class="bold">Agenda:</span>
+        <% deck.cards.where(card_type: "Agenda").each do |c| %>
+          <%= c.name %>
+        <% end %>
+      </div>
+      <div class="row">
+        <span class="bold">Haven:</span>
+        <% deck.cards.where(card_type: "Haven").each do |c| %>
+          <%= c.name %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-2">
+      <%= render 'shared/clanCount', type: "Characters", cards: deck.cards.where(card_type: "Character") %>
+    </div>
+
+    <div class="col-md-3 col-sm-2">
+      <%= render 'shared/clanCount', type: "Actions", cards: deck.cards.where("card_type LIKE ?", "Action") %>
+    </div>
+
+    <div class="col-md-3 col-sm-2">
+      <%= render 'shared/clanCount', type: "Attacks/Reactions", cards: deck.cards.where("card_type LIKE ?", "Attack") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= render 'shared/deleteForm', deck: deck %>
+  </div>
+</div>

@@ -1,24 +1,41 @@
 <% provide(:title, 'Card Search') %>
-<h1>All Cards</h1>
+<div class="container">
 
-<%= form_with url: cards_path, method: :get, local: false do |f| %>
-<%= render 'shared/search', :f => f %>
-<% end %>
-
-<div id="card-list">
   <div class="row">
-    <div class="col-md-4">
-      Name
+    <div class="col-lg-8 col-md-7 col-xs-12 centered">
+      <div class="hidden-xs">
+      </div>
+      <%# Card search on right side %>
+      <div class="search-bar split-form">
+        <%# render search form with appropriate url path %>
+        <%= form_with url: cards_path, method: :get, id: "search-form", local: false do |f| %>
+          <%= render 'shared/search', :f => f %>
+        <% end %>
+      </div>
     </div>
-    <div class="col-md-4">
-      Faction
-    </div>
-    <div class="col-md-4">
-      Type
+
+    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+      image here
     </div>
   </div>
-<div id="card-list">
-  <div class="results">
-    <%= render @cards %>
+
+  <div class="list-header">
+    <div class="row">
+      <div class="col-md-4">
+        Name
+      </div>
+      <div class="col-md-4">
+        Faction
+      </div>
+      <div class="col-md-4">
+        Type
+      </div>
+    </div>
   </div>
+  <div class="card-list">
+    <div class="results">
+      <%= render @cards %>
+    </div>
+  </div>
+
 </div>

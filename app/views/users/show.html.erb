@@ -1,18 +1,20 @@
 <% provide(:title, 'User') %>
-<h1>User Name</h1>
-
-<%= @user.username %>
-<%= @user.email %>
-
-<ul>
+<div class="container">
+  <div class="row p-20">
+    <div class="col-md-4 white">
+      <h1>Welcome back, <%= @user.username %></h1>
+    </div>
+    <div class="col-md-3 name-form">
+      <%= form_with model: @deck do |f| %>
+        <%= f.text_field :name, placeholder: "Name new deck" %>
+        <%= hidden_field_tag :id, @user.id %>
+        <%= f. submit "New Deck", class: "btn btn-primary m-10" %>
+      <% end %>
+    </div>
+  </div>
   <% @decks.each do |deck| %>
-    <li>
-      <%= link_to deck.name, deck %>
-    </li>
+    <%= render 'deckRow', deck: deck %>
   <% end %>
-</ul>
 
-<%= form_with model: @deck do |f| %>
-  <%= hidden_field_tag :id, @user.id %>
-  <%= f. submit "New Deck", class: "btn btn-primary" %>
-<% end %>
+
+</div>

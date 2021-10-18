@@ -1,3 +1,12 @@
 <% provide(:title, 'Sign up') %>
 
-<%= render 'form' %>
+<div class="user-info">
+  <div class="row pop-out">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="info">
+        This project is entirely independant and for personal use.
+      </div>
+      <%= render 'form', text: "Create account" %>
+    </div>
+  </div>
+</div>

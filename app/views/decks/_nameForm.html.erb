@@ -2,6 +2,3 @@
   <%= text_field_tag(:name, "Name your deck") %>
   <%= submit_tag ("Update name") %>
 <% end %>
-
-<%= link_to "Delete deck", deck, method: :delete,
-                                         data: { confirm: "Delete deck?" } %>
