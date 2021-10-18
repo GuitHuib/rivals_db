@@ -26,3 +26,8 @@ if (count > 0) {
     counter.html(i - 1);
   }
 }
+if (type != "character" && type != "aganda" && type != "haven") {
+  var counter = $(`#library-count`)
+  var i = parseInt(counter.html())
+  counter.html(i - 1);
+}

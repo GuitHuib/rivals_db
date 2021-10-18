@@ -1,6 +1,7 @@
+<%= link_to card, remote: true do %>
 <div class="row card-row text-center">
   <div class="col-md-3 col-sm-2 col-xs-4 text-left">
-    <%= link_to card.name, card, remote:true %>
+    <%= card.name %>
   </div>
   <div class="col-md-1 col-sm-1 col-xs-2">
     <% if card.faction && card.faction != "Neutral" %>
@@ -59,7 +60,7 @@
     <%= card.shield %>
   </div>
 
-  <div class="col-md-1 col-sm-2">
+  <div class="col-md-1 col-sm-1 col-xs-2">
     <div class="row">
       <div class="col-md-6 col-xs-3 padding-0">
         <%= form_with(url: decklists_path, local: false) do |f| %>
@@ -80,4 +81,6 @@
   </div>
 
 </div>
+<% end %>
+
 <div id="card<%= card.id %>" class="card_pic"></div>

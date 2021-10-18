@@ -1,10 +1,13 @@
 <% provide(:title, 'Decklist') %>
 <%# Set page as one row of two columns %>
 <div class="row deck-main">
-  <div class="col-md-5 col-sm-12 col-xs-12">
+  <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
 
   </div>
-  <div class="col-md-5 col-sm-12 col-xs-12 right">
+  <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 right">
+    <div class="hidden-lg hidden-md">
+      <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
+    </div>
     <%# Fix decklist to left side of screen %>
     <div class="deck-info">
       <h1><%= @deck.name %></h1>
@@ -12,9 +15,9 @@
         <%= render 'decks/nameForm', deck: @deck %>
       <% end %>
     </div>
-    <div class="decklist">
+    <div class="centered">
       <%# split deck list by card type %>
-      <div class="row">
+      <div class="row centered">
         <div class="col-md-6 col-sm-6 col-xs-6">
           <%= render 'decks/cardGroup', cards: @agendas, type: "agenda", id: "agenda", title: "Agenda" %>
         </div>
@@ -22,12 +25,17 @@
           <%= render 'decks/cardGroup', cards: @havens, type: "haven", id: "haven", title: "Haven" %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="row centered">
+        <div class="col-md-12 col-sm-12 col-xs-12">
           <%= render 'decks/cardGroup', cards: @characters, type: "character", id: "character", title: "Characters" %>
+        </div>
+      </div>
+      <div class="row centered">
+        <h3>Library(<span id="library-count"><%= @library.length %></span>)</h3>
+        <div class="col-md-6 col-sm-6 col-xs-12 centered">
           <%= render 'decks/cardGroup', cards: @attacks, type: "attack", id: "attack", title: "Attacks/Reactions" %>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12 centered">
           <%= render 'decks/cardGroup', cards: @actions, type: "action", id: "action", title: "Action" %>
         </div>
       </div>
@@ -35,9 +43,9 @@
   </div>
 
   <% if current_user?(@deck.user) %>
-  <div class="col-md-7 col-xs-12 decklist">
+  <div class="col-lg-8 col-md-7 col-xs-12 centered">
     <div class="hidden-xs">
-      <%= image_tag 'rivals_bg', class: "dynamic-img" %>
+      <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
     </div>
     <%# Card search on right side %>
     <div class="search-bar split-form">
@@ -48,7 +56,7 @@
       <% end %>
     </div>
     <%# Card list on right side %>
-    <div class="decklist">
+    <div class="centered list">
       <%= render 'shared/card_list' %>
     </div>
     <% end %>

@@ -2,19 +2,11 @@
   <div class="col-md-1 col-xs-1 count">
     <%= card_count %>
   </div>
-  <div class="col-md-6 col-xs-6 name ">
+  <div class="col-md-6 col-xs-10 name ">
     <% if card.card_type === "Character" %>
       <%= card.name %> (<%= card.faction %>)
     <% else %>
       <%= card.name %>
     <% end %>
   </div>
-  <!-- <div class="col-md-2 col-xs-2 ">
-    <% if card.card_type.include? "Defense" %>
-      <%= card.reaction_type %>
-    <% else %>
-      <%= card.blood %>
-      <%= card.attack_type %>
-    <% end %>
-  </div> -->
 </div>

@@ -1,8 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
  -moz-box-sizing:    border-box;
  -webkit-box-sizing: border-box;
@@ -10,18 +8,17 @@ $gray-medium-light: #eaeaea;
 }
 /* universal */
 body {
-  // background: linear-gradient(183deg, rgba(141,35,46,0.5) 1%, rgba(141,35,46,0) 60%),
-  //             linear-gradient(250deg, rgba(141,35,46,0) 21%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
-  //             linear-gradient(250deg, rgba(141,35,46,0) 23%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
-  //             linear-gradient(250deg, rgba(141,35,46,0) 25%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
-  //             repeating-linear-gradient(179deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 5px);;
-  //
-  // background-color: #0b232f;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // color: #fff;
-  // background-color: #d1b59d;
-  padding: 60px 0 0;
+  background: linear-gradient(183deg, rgba(141,35,46,0.5) 1%, rgba(141,35,46,0) 60%),
+              linear-gradient(250deg, rgba(141,35,46,0) 21%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              linear-gradient(250deg, rgba(141,35,46,0) 23%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              linear-gradient(250deg, rgba(141,35,46,0) 25%, rgba(141,35,46,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              repeating-linear-gradient(179deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 5px);;
+
+  background-color: #0b232f;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #d1b59d;
+  padding: 50px 0 0;
 }
 section {
   overflow: auto;
@@ -33,34 +30,72 @@ input[type=text] {
   width: 100%;
 }
 .content {
-  margin: 15px 20px;
+}
+.centered {
+  margin: auto;
 }
 .right {
   position: fixed;
 }
-
-/* Home page */
+.padding-0 {
+  padding: 0;
+}
+/* nav styles */
+.navbar {
+  margin-bottom: 0;
+}
+/* Login page */
 .jumbotron {
   background-image: url(rivals_bg_3.jpeg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  display: flex;
+  align-items: center;
   height: 90vh;
-  margin-top: 5vh;
+  margin: 30px auto;
+  max-width: 1100px;
+  padding-top: 50px;
 }
+.pop-out {
+  background-color: rgba(51, 51,  51, 0.8);
+  border-radius: 15px;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding-bottom: 10px;
+  min-height: 300px;
+  min-width: 250px;
+  width: 60%;
+  img {
+    margin-top: 20px;
+    padding-top: 30px;
+    width: 100%;
+  }
+  input {
+    margin: 5px;
+  }
+  p a {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+}
+.info {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+
 /* Card styling */
-.card_pic {
-  position: absolute;
-  left: 75px;
-  z-index: 1;
-}
+
 /* Deck list styling */
 .deck-main {
-  // background-image: url(vtm-2.jpeg);
-  // background-position: center top;
-  // background-repeat: no-repeat;
-  // background-size: contain;
-  // background-attachment: fixed;
+  margin-top: 50px;
+}
+.image-holder {
+  margin-top: 20px;
 }
 .deck-info {
   margin-bottom: 20px;
@@ -74,13 +109,11 @@ input[type=text] {
    padding-left: 30px;
  }
 }
-.decklist {
-  margin: auto;
-  padding: 0 10px 50px 10px;
-}
 .dynamic-img {
+  padding: 10px;
   width: 100%;
 }
+
 /* Search bar styling */
 input {
   margin: 0 10px;
@@ -88,8 +121,7 @@ input {
 select {
   margin: 0 10px;
 }
-.padding-0 {
-  padding: 0;
+.search-bar {
 }
 .sm-btn {
   background: #ccc;
@@ -113,6 +145,11 @@ select {
   border-bottom: 2px solid #000;
   padding-bottom: 5px;
 }
+.list {
+  a {
+    color: #333;
+  }
+}
 .card-row {
   border-collapse: collapse;
   border-bottom: 1px solid #000;
@@ -121,6 +158,20 @@ select {
   &:hover {
     background-color: #e0dede;
   }
+}
+.card_pic {
+  position: absolute;
+  left: 75px;
+  z-index: 1;
+  img {
+    height: 300px;
+  }
+}
+
+/* footer */
+
+footer {
+
 }
 
 /* miscellaneous */
@@ -134,11 +185,14 @@ select {
 }
 
 /* media queries */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
   body {
     font-size: 1.2rem;
   }
   .right {
     position: inherit;
   }
+}
+@media only screen and (max-width: 768) {
+
 }

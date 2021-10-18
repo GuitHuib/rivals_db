@@ -8,43 +8,43 @@
 </div>
 
 <div class="row">
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :disciplines, [["Discipline", nil], "Animalism", "Auspex", "Celerity", "Dominate", "Fortitude", "Obfuscate", "Potence", "Presence", "Protean", "Blood Sorcery", ["Alchemy", "Thin-blood Alchemy"]] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :faction, [["Clan", nil], "Brujah", "Toreador", "Malkavian", "Ventrue", "Thin Blood", "Tremere"] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :card_type, [["Card Type", nil], "Character", "Action", "Attack", ["Reaction", "Defense"], "Ongoing", "Scheme", "Conspiracy", "Aganda", "Haven"] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :attack_type, [["Attack Type", nil], "Ranged", "Physical", "Social", "Mental"] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :blood_requirement, [["Blood Req.", nil], 0, 1, 2, 3, 4, 5, 6] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :blood, [["Blood Pot.", nil], 0, 1, 2, 3, 4, 5, 6], {}, { :class => 'test' } %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :physical, [["Physical", nil], 0, 1, 2, 3] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :social, [["Social", nil], 0, 1, 2, 3] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.select :mental, [["Mental", nil], 0, 1, 2, 3] %>
   </div>
-  <div class="col-md-4 col-sm-4 col-xs-6">
+  <div class="col-lg-4 col-sm-4 col-xs-6">
     <%= f.select :product, [["Set", nil], "Core Set", "Blood & Alchemy", "Promo"] %>
   </div>
-  <div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="col-lg-2 col-sm-4 col-xs-6">
     <%= f.submit "Clear Filters", :type => "reset" %>
   </div>
-  <div class="col-md-12 col-sm-4 col-xs-6">
+  <div class="col-lg-12 col-sm-4 col-xs-6">
     <%= f.submit "Filter Cards", id: "submit-search" %>
   </div>
 </div>

@@ -13,7 +13,7 @@ class DecksController < ApplicationController
     @characters = @deck.cards.where(card_type: "Character").order(:blood => :desc)
     @attacks    = @deck.cards.where("card_type LIKE ? OR card_type LIKE ?", "%Attack%", "%Defense%")
     @actions    = @deck.cards.where("card_type LIKE ?", "%Action%")
-    @library    = @deck.cards.where.not(card_type: ["Agenda", "Haven", "Character"]).order(:name => :asc)
+    @library    = @deck.cards.where.not(card_type: ["Agenda", "Haven", "Character"])
     @cards      = Card.all.where(card_type: "Haven")
   end
 
