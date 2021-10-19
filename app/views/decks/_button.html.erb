@@ -1,17 +1,2 @@
-<div class="col-md-1 col-sm-1 col-xs-3">
-  <div class="row">
-    <div class="col-md-6 col-xs-12 padding-0">
-      <%= form_with(url: decklists_path, local: false) do |f| %>
-        <%= hidden_field_tag :c_id, card.id %>
-        <%= hidden_field_tag :d_id, id %>
-        <%= f.submit "+1", class: "btn sm-btn" %>
-      <% end %>
-    </div>
-    <div class="col-md-6 col-xs-12 padding-0">
-      <%= form_with(url: edit_deck_path(id), local: false, method: :get) do |f| %>
-        <%= hidden_field_tag :c_id, card.id %>
-        <%= f.submit "-1", class: "btn sm-btn" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+  <%= button_to "+", decklists_path, params: {c_id: card.id, d_id: id}, remote: true, class: "btn sm-btn test" %>
+  <%= button_to "-", edit_deck_path(id), method: :get, params: {c_id: card.id}, remote: true, class: "btn sm-btn test" %>

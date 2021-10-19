@@ -231,7 +231,9 @@ select {
     width: 100%;
   }
 }
-
+.active {
+  color: red !important;
+}
 
 /* Card list styling */
 .card-list {

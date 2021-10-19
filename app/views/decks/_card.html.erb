@@ -49,6 +49,12 @@
     <%= card.shield %>
   </div>
 
-  <%= render 'decks/button', card: card, id: id %>
+  <div class="col-md-1 col-sm-1 col-xs-3">
+    <div class="row buttons">
+      <%= render 'decks/button', card: card, id: id %>
+    </div>
+  </div>
+
+
 </div>
 <div id="card<%= card.id %>" class="card-pic"></div>

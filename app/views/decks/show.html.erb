@@ -28,7 +28,7 @@
         <%# Card search on right side %>
         <div class="search-bar split-form">
           <%# render search form with appropriate url path %>
-          <%= form_with url: 'search', method: :get, id: "search-form", local: false do |f| %>
+          <%= form_with url: 'decks/search', method: :get, id: "search-form", local: false do |f| %>
             <%= hidden_field_tag :d_id, @deck.id %>
 
             <%= render 'shared/search', :f => f%>
