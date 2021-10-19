@@ -44,7 +44,7 @@
 
             <div class="results">
               <% @cards.each do |card| %>
-                <%= render 'card', id: @deck.id, card:card %>
+                <%= render 'card', id: @deck.id, card:card, count: @deck.cards.where(id: card.id).length %>
               <% end %>
             </div>
 

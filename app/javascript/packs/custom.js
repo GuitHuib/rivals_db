@@ -1,17 +1,29 @@
-function test(e) {
-  $(e.target).addClass('active');
-};
-function bind() {
-  $('.test').each(function() {
+function check_active(){
+  $(".card-row").each(function() {
+    var count = parseInt($(this).find('.qty-in-deck').html())
+    $(this).find(`.qty:eq(${count})`).addClass("active")
+  })
+}
+
+function bind_active() {
+  $('.qty').each(function() {
     this.addEventListener("click", function (e) {
       $(this).closest("div").find(".active").removeClass("active")
-      test(e);
+      make_active(e);
     })
   });
-}
+};
+
+function make_active(e) {
+  $(e.target).addClass('active');
+};
+
+
 window.addEventListener("turbolinks:load", () => {
-  bind();
+  check_active()
+  bind_active();
 });
 window.addEventListener("ajax:success", () => {
-  bind()
+  check_active()
+  bind_active()
 });

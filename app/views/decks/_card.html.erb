@@ -51,6 +51,9 @@
 
   <div class="col-md-1 col-sm-1 col-xs-3">
     <div class="row buttons">
+      <div class="qty-in-deck hidden">
+        <%= count %>
+      </div>
       <%= render 'decks/button', card: card, id: id %>
     </div>
   </div>

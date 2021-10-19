@@ -1,7 +1,9 @@
-var list = $("#card-list")
 var results = $(".results")
 results.empty()
+
+var count = 0;
+
 <% @cards.each do |card| %>
-  results.append("<%= escape_javascript(render 'decks/card', card: card, id: @deck.id) %>")
+  results.append(`<%= escape_javascript(render 'decks/card', card: card, id: @deck.id, count: @deck.cards.where(id: card.id).length) %>`)
 <% end %>
-document.getElementById("search-form").reset()
+$("#search-form").trigger("reset")
