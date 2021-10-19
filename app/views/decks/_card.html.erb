@@ -1,8 +1,15 @@
 <div class="row card-row text-center">
-  <div class="col-md-3 col-sm-2 col-xs-5 text-left">
+
+  <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3">
+    <div class="row buttons">
+      <%= render 'decks/button', card: card, id: id %>
+    </div>
+  </div>
+
+  <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 text-left">
     <%= link_to card.name, card, remote: true %>
   </div>
-  <div class="col-md-1 col-sm-1 hidden-xs">
+  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
     <% if card.faction && card.faction != "Neutral" %>
       <%= image_tag card.faction %>
     <% else %>
@@ -10,11 +17,11 @@
     <% end %>
   </div>
 
-  <div class="col-md-1 col-sm-1 hidden-xs">
+  <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs">
     <%= card.blood %>
     <%= card.blood_requirement %>
   </div>
-  <div class="col-md-2 col-sm-3 hidden-xs">
+  <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
     <% if card.card_type === "Character" %>
       <%= card.physical %>/
       <%= card.social %>/
@@ -23,7 +30,7 @@
       -
     <% end %>
   </div>
-  <div class="col-md-2 col-sm-2 col-xs-4">
+  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
     <% if card.card_type.include? "Attack" %>
       <%= render 'shared/renderIcon', types: card.attack_type.split(",") %>
     <% end %>
@@ -44,18 +51,16 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col-md-2 col-sm-2 hidden-xs">
+  <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
     <%= card.damage %>
     <%= card.shield %>
   </div>
 
-  <div class="col-md-1 col-sm-1 col-xs-3">
-    <div class="row buttons">
-      <div class="qty-in-deck hidden">
-        <%= count %>
-      </div>
-      <%= render 'decks/button', card: card, id: id %>
-    </div>
+
+
+  <%# factor out div? only needed on first load %>
+  <div class="qty-in-deck hidden">
+    <%= count %>
   </div>
 
 

@@ -1,31 +1,38 @@
-var element = document.querySelector("#c_<%= j @card.id %> > .count")
-var type = "<%= j @card.card_type %>".toLowerCase();
+var element    = document.querySelector("#c_<%= j @card.id %> > .count")
+var type       = "<%= j @card.card_type %>".toLowerCase();
 var first_type = type.replace(/,.*/, '')
+var change     = parseInt("<%= @change %>")
 
 /* add/increment card to appropriate field */
 if (element) {
-  num = parseInt(element.innerHTML)
-  element.innerHTML = num + 1;
+  i = parseInt(element.innerHTML)
+  if ( i + change < 1 ) {
+    $("#c_<%= j @card.id %>").remove()
+  }
+  else {
+    element.innerHTML = i + change;
+  }
 }
 else if (type.includes("attack") || type.includes("defense")){
-  $("#attack > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
+  // factor out count? only needed on first load
+  $("#attack > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: @change) %>")
 }
 else {
-  $("#" + first_type + " > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: 1) %>")
+  $("#" + first_type + " > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: @change) %>")
 }
 /* Increment main counter */
 if (type.includes("attack") || type.includes("defense")) {
   var counter = $(`#attack-count`);
   var i = parseInt(counter.html())
-  counter.html(i + 1);
+  counter.html(i + change);
 }
 else {
   var counter = $(`#${first_type}-count`)
   var i = parseInt(counter.html())
-  counter.html(i + 1);
+  counter.html(i + change);
 }
 if (type != "character" && type != "aganda" && type != "haven") {
   var counter = $(`#library-count`)
   var i = parseInt(counter.html())
-  counter.html(i + 1);
+  counter.html(i + change);
 }

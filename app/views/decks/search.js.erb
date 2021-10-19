@@ -1,9 +1,10 @@
 var results = $(".results")
 results.empty()
 
-var count = 0;
-
 <% @cards.each do |card| %>
+  var count = "<%= @deck.cards.where(name: card.name).length %>";
+  // factor out count? only needed on first load
   results.append(`<%= escape_javascript(render 'decks/card', card: card, id: @deck.id, count: @deck.cards.where(id: card.id).length) %>`)
+  $(".card-row").last().find(".qty:eq("+ count + ")").addClass('active')
 <% end %>
 $("#search-form").trigger("reset")

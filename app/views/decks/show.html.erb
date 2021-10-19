@@ -3,26 +3,26 @@
 <div class="container">
   <div class="row deck-main">
 
-    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+    <div class="col-md-4 col-sm-12 col-xs-12">
       <%# placeholder %>
     </div>
 
     <%# Fix decklist to left side of screen %>
-    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 right white">
-
+    <div class="col-md-4 col-sm-12 col-xs-12 right white">
       <div class="hidden-lg hidden-md">
         <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
       </div>
+      
+      <div class="inner-content">
+        <%= render 'deckInfo' %>
 
-      <%= render 'deckInfo' %>
-
-      <%= render 'categories' %>
-
+        <%= render 'categories' %>
+      </div>
     </div>
 
     <% if current_user?(@deck.user) %>
-      <div class="col-lg-8 col-md-7 col-xs-12 centered">
-        <div class="hidden-xs">
+      <div class="col-md-8 col-xs-12 centered">
+        <div class="hidden-sm hidden-xs">
           <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
         </div>
         <%# Card search on right side %>
@@ -51,6 +51,12 @@
           </div>
         </div>
       </div>
+    <% else %>
+    <div class="col-lg-8 col-md-7 col-xs-12 centered">
+      <div class="hidden-xs">
+        <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>

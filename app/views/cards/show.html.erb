@@ -1,8 +1,6 @@
 <% provide(:title, 'Card') %>
-<h1>Card Name</h1>
-
-<%= @card.name %>
-<%= @card.faction %>
-<%= @card.card_type %>
-
-<%= image_tag("Hydra.jpeg") %>
+<div class="container">
+  <div class="card-page text-center">
+    <%= image_tag 'Hydra', class: "full-img" %>
+  </div>
+</div>

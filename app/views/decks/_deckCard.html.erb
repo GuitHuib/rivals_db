@@ -2,11 +2,12 @@
   <div class="col-md-1 col-xs-1 count">
     <%= card_count %>
   </div>
-  <div class="col-md-6 col-xs-10 name ">
+  <div class="col-md-6 col-xs-10 padding-0 white-link">
     <% if card.card_type === "Character" %>
-      <%= card.name %> (<%= card.faction %>)
+    <%= link_to card.name, card, target: :blank %>
+      (<%= card.faction %>)
     <% else %>
-      <%= card.name %>
+      <%= link_to card.name, card, target: :blank %>
     <% end %>
   </div>
 </div>

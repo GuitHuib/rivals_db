@@ -18,12 +18,15 @@ function make_active(e) {
   $(e.target).addClass('active');
 };
 
-
+function bind_reset(){
+  $("#search-form").submit(function() {
+    $("#search-form").trigger("reset")
+  });
+}
 window.addEventListener("turbolinks:load", () => {
   check_active()
   bind_active();
 });
 window.addEventListener("ajax:success", () => {
-  check_active()
   bind_active()
 });

@@ -1,2 +1,16 @@
-  <%= button_to "+", decklists_path, params: {c_id: card.id, d_id: id}, remote: true, class: "btn sm-btn qty" %>
-  <%= button_to "-", edit_deck_path(id), method: :get, params: {c_id: card.id}, remote: true, class: "btn sm-btn qty" %>
+<%= button_to "0", decklists_path,
+                     params: {c_id: card.id, d_id: id, val: 0},
+                     remote: true,
+                     class: " sm-btn qty" %>
+<%= button_to "1", decklists_path,
+                     params: {c_id: card.id, d_id: id, val: 1},
+                     remote: true,
+                     class: " sm-btn qty" %>
+<%= button_to "2", decklists_path,
+                     params: {c_id: card.id, d_id: id, val: 2},
+                     remote: true,
+                     class: " sm-btn qty" %>
+<%= button_to "3", decklists_path,
+                     params: {c_id: card.id, d_id: id, val: 3},
+                     remote: true,
+                     class: " sm-btn qty" %>
