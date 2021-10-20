@@ -1,7 +1,8 @@
-<%= form_tag(deck_path(deck), method: :patch) do %>
-  <%= text_field_tag(:name, "Name your deck") %>
-  <%= submit_tag ("Update name") %>
+<%= form_with model: deck do |f| %>
+  <%= f.text_field :name, placeholder: "Rename Deck" %>
+  <%= f. submit "Update name", class:"m-10" %>
 <% end %>
+
 <div class="white small m-10">
   Changes to deck saved automatically
 </div>

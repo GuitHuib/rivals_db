@@ -9,14 +9,15 @@ class CardsController < ApplicationController
                          params[:physical],
                          params[:social],
                          params[:mental],
+                         params[:tags],
                          params[:attack_type],
                          params[:disciplines],
                          params[:text],
                          params[:product],
-                         )
+                         ).order(:name => :asc)
     respond_to do |format|
       format.js
-      format.html { @cards = Card.where(card_type: "Haven") }
+      format.html { @cards = Card.where(card_type: "Agenda").order(:name => :asc) }
     end
   end
 

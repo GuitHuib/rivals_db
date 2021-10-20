@@ -61,6 +61,7 @@ class DecksController < ApplicationController
                          params[:physical],
                          params[:social],
                          params[:mental],
+                         params[:tags],
                          params[:attack_type],
                          params[:disciplines],
                          params[:text],

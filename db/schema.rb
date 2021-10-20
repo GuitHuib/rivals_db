@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_16_045158) do
+ActiveRecord::Schema.define(version: 2021_10_20_065456) do
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_10_16_045158) do
     t.string "reaction_type"
     t.integer "damage"
     t.integer "shield"
+    t.string "tags"
   end
 
   create_table "decklists", force: :cascade do |t|
