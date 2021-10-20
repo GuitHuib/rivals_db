@@ -4,6 +4,7 @@
   <% if current_user?(@deck.user) %>
     <%= render 'decks/nameForm', deck: @deck %>
     <div class="row">
+
       <%= render 'shared/deleteForm', deck: @deck %>
     </div>
   <% end %>

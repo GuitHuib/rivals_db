@@ -29,20 +29,8 @@
       <%= render 'shared/renderIcon', types: card.attack_type.split(",") %>
     <% end %>
 
-    <%# REFACTOR - why doesn't renderIcon partial render correctly here? %>
     <% if card.card_type.include? "Defense" %>
-      <% if card.reaction_type.include? "Ranged" %>
-        <%= image_tag 'Ranged' %>
-      <% end %>
-      <% if card.reaction_type.include? "Physical" %>
-        <%= image_tag 'Physical' %>
-      <% end %>
-      <% if card.reaction_type.include? "Social" %>
-        <%= image_tag 'Social' %>
-      <% end %>
-      <% if card.reaction_type.include? "Mental" %>
-        <%= image_tag 'Mental' %>
-      <% end %>
+      <%= render 'shared/renderIcon', types: card.reaction_type.split(",") %>
     <% end %>
   </div>
   <div class="col-lg-1 col-md-1 col-sm-2 hidden-xs">

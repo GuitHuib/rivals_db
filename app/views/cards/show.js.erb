@@ -1,5 +1,5 @@
 <%# find card image and append to card row %>
-var image_link = '<div class="row pic-link"><%= image_tag "#{@card.name}.jpeg" %><%= link_to "Open card in new tab", @card, target: :blank %></div>'
+var image_link = '<div class="row pic-link"><%= image_tag "cards/#{@card.id}.jpeg" %><%= link_to "Open card in new tab", @card, target: :blank %></div>'
 var elem = $("#card<%= j @card.id %>")
 
 if (elem.is(':empty')){

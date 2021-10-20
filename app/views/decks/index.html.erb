@@ -9,9 +9,11 @@
   </div>
   <% @decks.each do |deck| %>
 
-    <%= link_to deck do %>
-      <%= render 'users/deckRow', deck: deck %>
-    <% end %>
+    <% if deck.public %>
+      <%= link_to deck do %>
+        <%= render 'users/deckRow', deck: deck %>
+      <% end %>
+    <% end%>
   <% end %>
 
 </div>

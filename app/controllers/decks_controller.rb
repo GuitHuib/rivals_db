@@ -81,7 +81,7 @@ class DecksController < ApplicationController
 
   private
     def deck_params
-      params.require(:deck).permit(:name)
+      params.require(:deck).permit(:name, :public)
     end
 
     def correct_user
