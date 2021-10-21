@@ -34,9 +34,11 @@ textarea {
   resize: vertical;
 }
 input[type=text] {
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
   width: 100%;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .content {
   padding-top: 50px;
