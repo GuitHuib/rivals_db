@@ -3,6 +3,11 @@
 <div class="container">
   <div class="row deck-main">
 
+    <div class="card-pic">
+
+    </div>
+
+
     <div class="col-md-4 col-sm-12 col-xs-12">
       <%# placeholder %>
     </div>
@@ -12,7 +17,7 @@
       <div class="hidden-lg hidden-md">
         <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
       </div>
-      
+
       <div class="inner-content">
         <%= render 'deckInfo' %>
 
@@ -36,9 +41,12 @@
           <% end %>
         </div>
 
+
+
         <%# Card list on right side %>
         <div class="centered list">
           <div class="card-list">
+
 
             <%= render 'listHeader' %>
 
