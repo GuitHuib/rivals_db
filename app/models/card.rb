@@ -5,7 +5,7 @@ class Card < ApplicationRecord
   def self.search(name, faction, card_type, blood_requirement, blood, physical, social, mental, tags, attack_type, disciplines, text, product)
     card = Card.all
     if name.present?
-      card = Card.where("name LIKE ?", "%" + name + "%")
+      card = Card.where("name ILIKE ?", "%" + name + "%")
       if card
         card
       else
@@ -15,12 +15,12 @@ class Card < ApplicationRecord
       card = Card.all
     end
     if faction.present?
-      card = card.where("faction LIKE ?", "%" + faction + "%")
+      card = card.where("faction ILIKE ?", "%" + faction + "%")
     else
       card = card
     end
     if card_type.present?
-      card = card.where("card_type LIKE ?", "%" + card_type + "%")
+      card = card.where("card_type ILIKE ?", "%" + card_type + "%")
     else
       card = card
     end
@@ -50,7 +50,7 @@ class Card < ApplicationRecord
       card = card
     end
     if tags.present?
-      card = card.where("tags LIKE ?", "%" + tags + "%")
+      card = card.where("tags ILIKE ?", "%" + tags + "%")
     else
       card = card
     end
@@ -60,17 +60,17 @@ class Card < ApplicationRecord
       card = card
     end
     if disciplines.present?
-      card = card.where("disciplines LIKE ?", "%" + disciplines + "%")
+      card = card.where("disciplines ILIKE ?", "%" + disciplines + "%")
     else
       card = card
     end
     if text.present?
-      card = card.where("text LIKE ?", "%" + text + "%")
+      card = card.where("text ILIKE ?", "%" + text + "%")
     else
       card = card
     end
     if product.present?
-      card = card.where("product LIKE ?", "%" + product + "%")
+      card = card.where("product ILIKE ?", "%" + product + "%")
     else
       card = card
     end

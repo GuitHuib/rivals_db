@@ -4,13 +4,15 @@
     <div class="col-md-4 white">
       <h1>Welcome back, <%= @user.username %></h1>
     </div>
+    <% if current_user?(@deck.user) %>
     <div class="col-md-3 name-form">
-      <%= form_with model: @deck do |f| %>
-        <%= f.text_field :name, placeholder: "Name new deck" %>
-        <%= hidden_field_tag :id, @user.id %>
-        <%= f. submit "New Deck", class: "btn m-10" %>
-      <% end %>
-    </div>
+        <%= form_with model: @deck do |f| %>
+          <%= f.text_field :name, placeholder: "Name new deck" %>
+          <%= hidden_field_tag :id, @user.id %>
+          <%= f. submit "New Deck", class: "btn m-10" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <% @decks.each do |deck| %>
     <%= link_to deck do %>
