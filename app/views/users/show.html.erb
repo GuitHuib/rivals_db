@@ -4,7 +4,7 @@
     <div class="col-md-4 white">
       <h1>Welcome back, <%= @user.username %></h1>
     </div>
-    <% if current_user?(@deck.user) %>
+    <% if current_user?(@user) %>
     <div class="col-md-3 name-form">
         <%= form_with model: @deck do |f| %>
           <%= f.text_field :name, placeholder: "Name new deck" %>
