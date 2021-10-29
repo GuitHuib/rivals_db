@@ -4,9 +4,6 @@
   </div>
   <div class="col-md-6 col-xs-10 padding-0 white-link">
     <% if card.card_type === "Character" %>
-      <% if card.id === leader.id %>
-        *
-      <% end %>
       <%= link_to card.name, card, remote: true %>
       (<%= card.faction %>)
     <% else %>
