@@ -6,7 +6,9 @@
     <% cards.uniq.each do |card| %>
       <%= render 'decks/deckCard',
         card: card,
-        card_count: cards.where(name: card.name).length %>
+        card_count: cards.where(name: card.name).length,
+        leader: leader,
+        deck: deck %>
     <% end %>
   </div>
 </div>

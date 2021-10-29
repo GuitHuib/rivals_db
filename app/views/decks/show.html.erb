@@ -17,10 +17,18 @@
         <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
       </div>
 
-      <div class="inner-content">
+      <div class="inner-content scrollable">
         <%= render 'deckInfo' %>
 
         <%= render 'categories' %>
+
+        <div class="inner-form" %>
+          <h4 class="white">Deck notes</h4>
+          <%= form_with model: @deck do |f| %>
+            <%= f.text_area :notes, placeholder: @notes %>
+            <%= f. submit "Save Notes", class:"m-10" %>
+          <% end %>
+        </div>
       </div>
     </div>
 

@@ -8,7 +8,7 @@
   </div>
   <div class="row">
 
-    <div class="col-md-3 col-sm-2">
+    <div class="col-md-4 col-sm-2">
       <div class="row">
         <span class="bold">Agenda:</span>
         <% deck.cards.where(card_type: "Agenda").each do |c| %>
@@ -27,7 +27,7 @@
       <%= render 'shared/clanCount', type: "Characters", cards: deck.cards.where(card_type: "Character") %>
     </div>
 
-    <div class="col-md-3 col-sm-2">
+    <div class="col-md-2 col-sm-2">
       <%= render 'shared/clanCount', type: "Actions", cards: deck.cards.where("card_type LIKE ?", "Action") %>
     </div>
 
@@ -35,6 +35,7 @@
       <%= render 'shared/clanCount', type: "Attacks/Reactions", cards: deck.cards.where("card_type LIKE ?", "Attack") %>
     </div>
   </div>
+
 
   <div class="row">
     <%= render 'shared/deleteForm', deck: deck %>

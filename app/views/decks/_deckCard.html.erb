@@ -4,10 +4,13 @@
   </div>
   <div class="col-md-6 col-xs-10 padding-0 white-link">
     <% if card.card_type === "Character" %>
-    <%= link_to card.name, card, target: :blank %>
+      <% if card.id === leader.id %>
+        *
+      <% end %>
+      <%= link_to card.name, card, remote: true %>
       (<%= card.faction %>)
     <% else %>
-      <%= link_to card.name, card, target: :blank %>
+      <%= link_to card.name, card, remote: true %>
     <% end %>
   </div>
 </div>

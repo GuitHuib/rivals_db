@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_20_173035) do
+ActiveRecord::Schema.define(version: 2021_10_29_191026) do
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2021_10_20_173035) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "public", default: false
+    t.integer "leader"
+    t.text "notes"
     t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
