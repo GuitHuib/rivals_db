@@ -22,6 +22,7 @@
 
         <%= render 'categories' %>
 
+        <% if current_user?(@deck.user) %>
         <div class="inner-form" %>
           <h4 class="white">Deck notes</h4>
           <%= form_with model: @deck do |f| %>
@@ -29,6 +30,14 @@
             <%= f. submit "Save Notes", class:"m-10" %>
           <% end %>
         </div>
+        <% else %>
+        <div class="inner-form" %>
+          <h4 class="white">Deck notes</h4>
+          <textarea name="notes" rows="8" cols="80">
+            <%= @deck.notes %>
+          </textarea>
+        </div>
+        <% end %>
       </div>
     </div>
 
