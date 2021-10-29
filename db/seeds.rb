@@ -1049,7 +1049,7 @@ Card.create(name:    "Hua Jiang",
            )
 Card.create(name:    "Freddy Usher",
             card_type: "Character",
-            faction: "Thin-blood",
+            faction: "Toreador",
             blood_requirement: nil,
             blood: 3,
             physical: 1,
