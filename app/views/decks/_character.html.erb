@@ -9,13 +9,13 @@
     <% end %>
   </div>
   <% if current_user?(@deck.user) %>
-  <% unless leader %>
-    <div class="col-md-1 col-xs-2">
-      <%= form_with model: deck do |f| %>
-        <%= f.hidden_field :leader, value: card.id %>
-        <%= f.submit "^", class:"btn-round" %>
-      <% end %>
-    </div>
-  <% end %>
+    <% unless leader %>
+      <div class="col-md-1 col-xs-2">
+        <%= form_with model: deck do |f| %>
+          <%= f.hidden_field :leader, value: card.id %>
+          <%= f.submit "^", class:"btn-round" %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
