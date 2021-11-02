@@ -9,7 +9,7 @@
         <%= form_with model: @deck do |f| %>
           <%= f.text_field :name, placeholder: "Name new deck" %>
           <%= hidden_field_tag :id, @user.id %>
-          <%= f. submit "New Deck", class: "btn m-10" %>
+          <%= f. submit "New Deck", class: "lg-btn m-10" %>
         <% end %>
       </div>
     <% end %>

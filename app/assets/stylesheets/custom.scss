@@ -34,6 +34,8 @@ textarea {
   resize: vertical;
 }
 input[type=text] {
+  background: $white;
+  color: #333;
   width: 100%;
 }
 select {
@@ -97,7 +99,11 @@ select {
 }
 .white-link a {
   color: #Eaf4fc;
-  text-decoration: underline;
+}
+.lg-btn {
+  background: #000;
+  border-radius: 5px;
+  color: $white;
 }
 /* nav styles */
 header {
@@ -190,12 +196,13 @@ nav {
   }
 }
 .name-form {
+  border: 1px solid $white;
+  border-radius: 5px;
   margin-top: 15px;
   input[type=text] {
     width: 50%;
   }
 }
-
 /* Deck list styling */
 .deck-main {
   margin-top: 50px;
@@ -203,7 +210,6 @@ nav {
 .deck-info {
   margin-bottom: 20px;
   input {
-    color: #000;
     margin: 5px 0;
   }
   [type=text] {
@@ -225,11 +231,18 @@ nav {
   color: #000;
   margin: 30px auto;
   textarea {
+    background: $white;
     height: 100px;
     width: 100%;
   }
 }
-
+.btn-round {
+  background: transparent;
+  border-radius: 50%;
+  color: #d1b59d;
+  font-size: 1rem;
+  font-weight: bold;
+}
 /* Search bar styling */
 input {
   margin: 0 10px;
@@ -312,7 +325,6 @@ select {
     height: 300px;
   }
 }
-
 .pic-link {
   background-color: #000;
   border-radius: 10px;
@@ -329,9 +341,7 @@ select {
 }
 /* footer */
 
-
 /* miscellaneous */
-
 .debug_dump {
   clear: both;
   float: left;

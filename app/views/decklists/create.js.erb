@@ -1,3 +1,5 @@
+
+var row        = $(`#c_<%= j @card.id %>`)
 var element    = document.querySelector("#c_<%= j @card.id %> > .count")
 var type       = "<%= j @card.card_type %>".toLowerCase();
 var first_type = type.replace(/,.*/, '')
@@ -16,6 +18,10 @@ if (element) {
 else if (type.includes("attack") || type.includes("defense")){
   // factor out count? only needed on first load
   $("#attack > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: @change) %>")
+}
+else if (type === "character"){
+  // factor out count? only needed on first load
+  $("#character > .card-container").append("<%= escape_javascript(render 'decks/character', card: @card, card_count: @change, leader: false, deck: @deck) %>")
 }
 else {
   $("#" + first_type + " > .card-container").append("<%= escape_javascript(render 'decks/deckCard', card: @card, card_count: @change) %>")

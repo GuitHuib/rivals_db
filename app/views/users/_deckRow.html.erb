@@ -21,6 +21,12 @@
           <%= c.name %>
         <% end %>
       </div>
+      <div class="row">
+        <span class="bold">Leader:</span>
+        <% deck.cards.where(id: deck.leader).each do |c| %>
+          <%= c.name %>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-md-3 col-sm-2">

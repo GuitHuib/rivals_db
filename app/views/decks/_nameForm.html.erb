@@ -1,8 +1,11 @@
 <%= form_with model: deck do |f| %>
   <%= f.text_field :name, placeholder: "Rename Deck" %>
-  <%= f. submit "Update name", class:"m-10" %>
+  <%= f.submit "Update name", class:"m-10 lg-btn" %>
 <% end %>
 
 <div class="white small m-10">
   Changes to deck saved automatically
+</div>
+<div class="white small m-10">
+  <button class="btn-round">^</button> - Make character Leader
 </div>

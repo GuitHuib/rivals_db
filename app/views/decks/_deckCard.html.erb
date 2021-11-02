@@ -1,13 +1,17 @@
 <div id="c_<%= card.id %>" class="row">
-  <div class="col-md-1 col-xs-1 count">
-    <%= card_count %>
-  </div>
-  <div class="col-md-6 col-xs-10 padding-0 white-link">
-    <% if card.card_type === "Character" %>
+  <% if card.card_type === "Agenda" || card.card_type === "Haven" %>
+    <div class="count hidden">
+      <%= card_count %>
+    </div>
+    <div class="col-xs-12 white-link">
       <%= link_to card.name, card, remote: true %>
-      (<%= card.faction %>)
-    <% else %>
+    </div>
+  <% else %>
+    <div class="col-md-1 col-xs-1 count">
+      <%= card_count %>
+    </div>
+    <div class="col-md-6 col-xs-10 padding-0 white-link">
       <%= link_to card.name, card, remote: true %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

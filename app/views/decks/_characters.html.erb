@@ -2,13 +2,26 @@
   <div class="row">
     <h4><%= title %> (<span id="<%= type %>-count"><%= cards.length %></span>)</h4>
   </div>
+
+  <% if leader %>
+    <div class="row">
+      <%= render 'character',
+        card: leader,
+        card_count: cards.where(name: leader.name).length,
+        leader: true
+      %>
+    </div>
+  <% end %>
   <div class="card-container row">
     <% cards.uniq.each do |card| %>
-      <%= render 'decks/deckCard',
-        card: card,
-        card_count: cards.where(name: card.name).length,
-        leader: leader,
-        deck: deck %>
+      <% unless card === leader %>
+        <%= render 'character',
+          card: card,
+          card_count: cards.where(name: card.name).length,
+          deck: deck,
+          leader: false
+        %>
+      <% end %>
     <% end %>
   </div>
 </div>

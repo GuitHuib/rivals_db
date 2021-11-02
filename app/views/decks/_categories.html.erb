@@ -15,7 +15,13 @@
   <div class="row centered">
 
     <div class="col-md-12 col-sm-12 col-xs-12">
-      <%= render 'decks/category', cards: @characters, type: "character", title: "Characters" %>
+      <%= render 'decks/characters',
+          cards: @characters,
+          type: "character",
+          title: "Characters",
+          leader: @leader,
+          deck: @deck
+      %>
     </div>
 
   </div>
@@ -25,11 +31,11 @@
     <h3>Library (<span id="library-count"><%= @library.length %></span>)</h3>
 
     <div class="col-md-6 col-sm-6 col-xs-12 centered">
-      <%= render 'decks/category', cards: @attacks, type: "attack", title: "Attacks/Reactions" %>
+      <%= render 'category', cards: @attacks, type: "attack", title: "Attacks/Reactions" %>
     </div>
 
     <div class="col-md-6 col-sm-6 col-xs-12 centered">
-      <%= render 'decks/category', cards: @actions, type: "action", title: "Action" %>
+      <%= render 'category', cards: @actions, type: "action", title: "Action" %>
     </div>
 
   </div>
