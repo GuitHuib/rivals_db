@@ -2,82 +2,69 @@
 <%# Set page as one row of two columns %>
 <div class="container">
   <div class="row deck-main">
-
     <div class="card-pic">
-
+      <!-- Display card images -->
     </div>
-
     <div class="col-md-4 col-sm-12 col-xs-12">
-      <%# placeholder %>
+       <!-- placeholder for fixed content -->
     </div>
-
-    <%# Fix decklist to left side of screen %>
-    <div class="col-md-4 col-sm-12 col-xs-12 right white">
+    <!-- Fix decklist to left side of screen  -->
+    <div class="col-md-4 col-sm-12 col-xs-12 left white">
       <div class="hidden-lg hidden-md">
         <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
       </div>
-
       <div class="inner-content scrollable">
-        <%= render 'deckInfo' %>
 
+        <%= render 'deckInfo' %>
         <%= render 'categories' %>
 
-
-        <div class="inner-form" %>
-          <h4 class="white">Deck notes</h4>
-          <% if current_user?(@deck.user) %>
-
-            <%= form_with model: @deck do |f| %>
-              <%= f.text_area :notes, placeholder: @notes %>
-              <%= f. submit "Save Notes", class:"m-10 lg-btn" %>
-            <% end %>
-
-          <% else %>
-            <textarea name="notes" rows="8" cols="80">
-              <%= @deck.notes %>
-            </textarea>
-          <% end %>
-        </div>
+        <% if current_user?(@deck.user) %>
+          <div class="inner-form" %>
+            <h4 class="white">Description</h4>
+              <%= form_with model: @deck do |f| %>
+                <%= f.text_area :notes, placeholder: @notes %>
+                <%= f. submit "Save Notes", class:"m-10 lg-btn" %>
+              <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
 
-    <% if current_user?(@deck.user) %>
-      <div class="col-md-8 col-xs-12 centered">
-        <div class="hidden-sm hidden-xs">
-          <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
-        </div>
-        <%# Card search on right side %>
-        <div class="search-bar split-form">
-          <%# render search form with appropriate url path %>
-          <%= form_with url: 'decks/search', method: :get, id: "search-form", local: false do |f| %>
-            <%= hidden_field_tag :d_id, @deck.id %>
+    <div class="col-md-8 col-xs-12 centered">
+      <div class="hidden-sm hidden-xs">
+        <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
+      </div>
 
-            <%= render 'shared/search', :f => f%>
+      <% if current_user?(@deck.user) %>
 
-          <% end %>
-        </div>
-
-        <%# Card list on right side %>
-        <div class="centered list">
-          <div class="card-list">
-
-            <%= render 'listHeader' %>
-
-            <div class="results">
-              <% @cards.each do |card| %>
-                <%= render 'card', id: @deck.id, card:card, count: @deck.cards.where(id: card.id).length %>
-              <% end %>
-            </div>
-
+      <!-- Card search on right side -->
+      <div class="search-bar split-form">
+        <!-- render search form with appropriate url path -->
+        <%= form_with url: 'decks/search', method: :get, id: "search-form", local: false do |f| %>
+          <%= hidden_field_tag :d_id, @deck.id %>
+          <%= render 'shared/search', :f => f %>
+        <% end %>
+      </div>
+      <!-- Card list on right side -->
+      <div class="centered list">
+        <div class="card-list">
+          <%= render 'listHeader' %>
+          <div class="results">
+            <% @cards.each do |card| %>
+              <%= render 'card', id: @deck.id, card:card, count: @deck.cards.where(id: card.id).length %>
+            <% end %>
           </div>
         </div>
       </div>
-    <% else %>
-    <div class="col-lg-8 col-md-7 col-xs-12 centered">
-      <div class="hidden-xs">
-        <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
+
+      <% else %>
+
+      <div class="description-area">
+        <h1>Notes from <%= @deck.user.username %></h1>
+          <%= simple_format(@notes) %>
       </div>
+
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>

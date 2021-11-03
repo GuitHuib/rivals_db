@@ -35,6 +35,7 @@ textarea {
 }
 input[type=text] {
   background: $white;
+  border-radius: 8px;
   color: #333;
   width: 100%;
 }
@@ -65,8 +66,11 @@ select {
 .centered {
   margin: auto;
 }
-.right {
+.left {
   position: fixed;
+}
+.h-50 {
+  height: 50px;
 }
 .padding-0 {
   padding: 0;
@@ -102,8 +106,13 @@ select {
 }
 .lg-btn {
   background: #000;
-  border-radius: 5px;
+  border-radius: 8px;
   color: $white;
+  &:hover {
+    border: 1px solid #600;
+    border-right: 3px solid #600;
+    transition: 0.3s;
+  }
 }
 /* nav styles */
 header {
@@ -139,7 +148,8 @@ nav {
   display: flex;
   align-items: center;
   height: 90vh;
-  margin: auto;
+  max-width: 1100px;
+  margin: 30px auto;
 }
 .jumbotron {
   background-image: url(rivals_bg_3.jpeg);
@@ -178,14 +188,15 @@ nav {
   }
 }
 .info {
+  border-bottom: 1px solid #333;
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 /* Deck index styling */
 .deck-row {
-  background-color: #ccc;
+  background-color: $white;
   border-radius: 10px;
   max-width: 750px;
   margin: 0 20px 30px;
@@ -232,8 +243,27 @@ nav {
   margin: 30px auto;
   textarea {
     background: $white;
-    height: 100px;
+    height: 15vh;
+    padding: 5px 10px;
     width: 100%;
+  }
+}
+.description-area {
+  background: rgba(176, 164, 164, 0.5);
+  border-radius: 5px;
+  color: #000;
+  margin: 3rem auto;
+  min-height: 50vh;
+  min-width: 280px;
+  padding: 1rem 0;
+  width: 75%;
+  h1 {
+    margin: 10px;
+    text-align: center;
+  }
+  p {
+    font-size: 1.5rem;
+    margin: 10px 30px;
   }
 }
 .btn-round {
@@ -267,10 +297,22 @@ select {
     border-radius: 5px;
     color: $white;
     margin: 10px 0;
+    &:hover {
+      border-color: #600;
+      transition: 0.2s;
+    }
   }
   [type=submit] {
     padding: 0 30px;
     width: 100%;
+    &:hover {
+      border-color: #600;
+      transition: 0.2s;
+    }
+  }
+  [type=reset]:hover {
+    border-color: #600;
+    transition: 0.2s;
   }
   select {
     background-color: #000;
@@ -278,8 +320,12 @@ select {
     border-radius: 5px;
     color: $white;
     margin: 10px 0;
-    padding: 2px;
+    padding: 2px 2px 2px 5px;
     width: 100%;
+    &:hover {
+      border-color: #600;
+      transition: 0.2s;
+    }
   }
 }
 .buttons form {
@@ -355,7 +401,7 @@ select {
   body {
     font-size: 1.2rem;
   }
-  .right {
+  .left {
     position: inherit;
   }
   .scrollable {

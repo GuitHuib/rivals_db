@@ -1,5 +1,5 @@
 <%= form_with model: deck do |f| %>
-  <%= f.text_field :name, placeholder: "Rename Deck" %>
+  <%= f.text_field :name, placeholder: " Rename Deck" %>
   <%= f.submit "Update name", class:"m-10 lg-btn" %>
 <% end %>
 
@@ -9,3 +9,5 @@
 <div class="white small m-10">
   <button class="btn-round">^</button> - Make character Leader
 </div>
+
+<%= render 'shared/deleteForm', deck: deck %>

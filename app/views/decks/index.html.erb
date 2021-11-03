@@ -1,15 +1,13 @@
-<% provide(:title, 'User') %>
+<% provide(:title, 'Recent Decks') %>
 <div class="container">
   <div class="row white offset bold p-20">
     <h1>Public decklists coming soon</h1>
   </div>
   <% @decks.each do |deck| %>
-
     <% if deck.public %>
       <%= link_to deck do %>
         <%= render 'users/deckRow', deck: deck %>
       <% end %>
     <% end%>
   <% end %>
-
 </div>

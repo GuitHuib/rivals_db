@@ -7,13 +7,13 @@ class DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(params[:id])
+    @deck       = Deck.find(params[:id])
     @agendas    = @deck.cards.where(card_type: "Agenda").order(:name => :asc)
     @havens     = @deck.cards.where(card_type: "Haven").order(:name => :asc)
     @characters = @deck.cards.where(card_type: "Character").order(:name => :asc)
     @attacks    = @deck.cards.where("card_type LIKE ? OR card_type LIKE ?", "%Attack%", "%Defense%").order(:name => :asc)
     @actions    = @deck.cards.where("card_type LIKE ?", "%Action%").order(:name => :asc)
-    @library    = @deck.cards.where.not(card_type: ["Agenda", "Haven", "Character"])
+    @library    = @deck.cards.where.not(card_type: ["Agenda", "Haven", "Character"]).length
     @cards      = Card.all.where(card_type: "Haven").order(:name => :asc)
     @notes      = @deck.notes
     if @deck.leader
