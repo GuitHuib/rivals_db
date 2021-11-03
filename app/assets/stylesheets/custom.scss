@@ -33,7 +33,10 @@ section {
 textarea {
   resize: vertical;
 }
-input[type=text] {
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=password_confirmation] {
   background: $white;
   border-radius: 8px;
   color: #333;
