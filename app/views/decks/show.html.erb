@@ -9,24 +9,60 @@
        <!-- placeholder for fixed content -->
     </div>
     <!-- Fix decklist to left side of screen  -->
-    <div class="col-md-4 col-sm-12 col-xs-12 left white">
+    <div class="col-md-4 col-sm-12 col-xs-12 left scrollable white">
       <div class="hidden-lg hidden-md">
         <%= image_tag 'vtmBannerTrans', class: "dynamic-img" %>
       </div>
-      <div class="inner-content scrollable">
-
-        <%= render 'deckInfo' %>
-        <%= render 'categories' %>
+      <div class="inner-content">
+        <div class="">
+          <% if !@deck.name.empty? %>
+            <h1><%= @deck.name %></h1>
+          <% else %>
+            <h1><%= @deck.user.username %>'s deck</h1>
+          <% end %>
+        </div>
 
         <% if current_user?(@deck.user) %>
-          <div class="inner-form" %>
-            <h4 class="white">Description</h4>
-              <%= form_with model: @deck do |f| %>
-                <%= f.text_area :notes, placeholder: @notes %>
-                <%= f. submit "Save Notes", class:"m-10 lg-btn" %>
-              <% end %>
-          </div>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Decklist</a></li>
+            <li><a data-toggle="tab" href="#menu1">Notes</a></li>
+            <li><a data-toggle="tab" href="#menu2">Edit info</a></li>
+          </ul>
         <% end %>
+
+        <div class="tab-content">
+
+          <div id="home" class="tab-pane fade in active">
+            <% if current_user?(@deck.user) %>
+              <div class="white small m-10">
+                Changes to deck saved automatically
+              </div>
+              <div class="white small m-10">
+                <button class="btn-round">^</button> - Make character Leader
+              </div>
+            <% end %>
+
+            <%= render 'categories' %>
+
+          </div>
+
+          <div id="menu1" class="tab-pane fade">
+            <% if current_user?(@deck.user) %>
+              <div class="inner-form" %>
+                <h4 class="white">Description</h4>
+                  <%= form_with model: @deck do |f| %>
+                    <%= f.text_area :notes, placeholder: @notes %>
+                    <%= f. submit "Save Notes", class:"m-10 lg-btn" %>
+                  <% end %>
+              </div>
+            <% end %>
+          </div>
+
+          <div id="menu2" class="tab-pane fade">
+            <%= render 'deckInfo' %>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -68,25 +104,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-  <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-  <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-</ul>
-
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <h3>HOME</h3>
-    <p>Some content.</p>
-  </div>
-  <div id="menu1" class="tab-pane fade">
-    <h3>Menu 1</h3>
-    <p>Some content in menu 1.</p>
-  </div>
-  <div id="menu2" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
-  </div>
-</div> -->

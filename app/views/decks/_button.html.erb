@@ -6,7 +6,9 @@
                      params: {c_id: card.id, d_id: id, val: 1},
                      remote: true,
                      class: " sm-btn qty" %>
+
 <% unless card.card_type === "Haven" || card.card_type === "Agenda" || card.card_type === "Character" %>
+
 <%= button_to "2", decklists_path,
                      params: {c_id: card.id, d_id: id, val: 2},
                      remote: true,

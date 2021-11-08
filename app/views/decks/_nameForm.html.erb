@@ -3,15 +3,8 @@
   <%= f.submit "Update name", class:"m-10 lg-btn" %>
 <% end %>
 
-<div class="white small m-10">
-  Changes to deck saved automatically
-</div>
-<div class="white small m-10">
-  <button class="btn-round">^</button> - Make character Leader
-</div>
-
 <% if deck.public? %>
-  <div class="m-10 h-50">
+  <div class="m-10">
     <%= form_with model: deck do |f| %>
       <%= f.hidden_field :public, value: false %>
       <%= f.submit "Make Private", class:"lg-btn" %>
