@@ -1,11 +1,11 @@
 <% provide(:title, @user.username) %>
 <div class="container">
   <div class="row p-20">
-    <div class="col-md-4 white">
+    <div class="col-md-6 white">
       <h1>Welcome back, <%= @user.username %></h1>
     </div>
     <% if current_user?(@user) %>
-    <div class="col-md-3 name-form">
+      <div class="col-md-6 name-form">
         <%= form_with model: @deck do |f| %>
           <%= f.text_field :name, placeholder: " Name new deck" %>
           <%= hidden_field_tag :id, @user.id %>
@@ -14,10 +14,9 @@
       </div>
     <% end %>
   </div>
-  <% @decks.each do |deck| %>
-    <%= link_to deck do %>
+  <div class="card-list max-800">
+    <% @decks.each do |deck| %>
       <%= render 'deckRow', deck: deck %>
     <% end %>
-  <% end %>
-
+  </div>
 </div>

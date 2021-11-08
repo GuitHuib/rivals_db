@@ -1,5 +1,5 @@
 <%= form_with model: deck do |f| %>
-  <%= f.text_field :name, placeholder: " Rename Deck" %>
+  <%= f.text_field :name, placeholder: " Name Deck" %>
   <%= f.submit "Update name", class:"m-10 lg-btn" %>
 <% end %>
 
@@ -10,4 +10,20 @@
   <button class="btn-round">^</button> - Make character Leader
 </div>
 
-<%= render 'shared/deleteForm', deck: deck %>
+<% if deck.public? %>
+  <div class="m-10 h-50">
+    <%= form_with model: deck do |f| %>
+      <%= f.hidden_field :public, value: false %>
+      <%= f.submit "Make Private", class:"lg-btn" %>
+    <% end %>
+    <%= render 'shared/deleteForm', deck: deck %>
+  </div>
+<% else %>
+  <div class="m-10 h-50">
+    <%= form_with model: deck do |f| %>
+      <%= f.hidden_field :public, value: true %>
+      <%= f.submit "Publish Deck", class:"lg-btn" %>
+    <% end %>
+    <%= render 'shared/deleteForm', deck: deck %>
+  </div>
+<% end %>

@@ -1,49 +1,39 @@
 <div class="row deck-row">
-  <h2><%= deck.name %></h2>
-  <div class="row">
-    <div class="col-sm-12 m-b-10">
-      <%= deck.user.username %>
+  <div class="col-md-6">
+    <% if !deck.name.empty? %>
+      <h3><%= link_to deck.name, deck %></h3>
+    <% else %>
+      <h3><%= link_to "#{deck.user.username}'s deck", deck %></h3>
+    <% end %>
+    <div class="row">
+      <div class="col-sm-12 m-b-10">
+        <% unless current_user?(deck.user)%>
+          by <%= link_to deck.user.username, deck.user %>
+        <% end %>
+      </div>
     </div>
-
   </div>
-  <div class="row">
 
-    <div class="col-md-4 col-sm-2">
-      <div class="row">
+  <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-12 m-b-10">
         <span class="bold">Agenda:</span>
         <% deck.cards.where(card_type: "Agenda").each do |c| %>
           <%= c.name %>
         <% end %>
       </div>
-      <div class="row">
+      <div class="col-md-12 m-b-10">
         <span class="bold">Haven:</span>
         <% deck.cards.where(card_type: "Haven").each do |c| %>
           <%= c.name %>
         <% end %>
       </div>
-      <div class="row">
+      <div class="col-md-12">
         <span class="bold">Leader:</span>
         <% deck.cards.where(id: deck.leader).each do |c| %>
           <%= c.name %>
         <% end %>
       </div>
     </div>
-
-    <div class="col-md-3 col-sm-2">
-      <%= render 'shared/clanCount', type: "Characters", cards: deck.cards.where(card_type: "Character") %>
-    </div>
-
-    <div class="col-md-2 col-sm-2">
-      <%= render 'shared/clanCount', type: "Actions", cards: deck.cards.where("card_type LIKE ?", "Action") %>
-    </div>
-
-    <div class="col-md-3 col-sm-2">
-      <%= render 'shared/clanCount', type: "Attacks/Reactions", cards: deck.cards.where("card_type LIKE ?", "Attack") %>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <%= render 'shared/deleteForm', deck: deck %>
   </div>
 </div>

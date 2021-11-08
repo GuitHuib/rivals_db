@@ -71,6 +71,13 @@ select {
 }
 .left {
   position: fixed;
+  max-width: 700px;
+}
+.right {
+  max-width: 1100px;
+}
+.max-800 {
+  max-width: 800px;
 }
 .h-50 {
   height: 50px;
@@ -141,6 +148,27 @@ nav {
   padding-top: 15px;
   padding-right: 15px;
 }
+/* pagination styles */
+.paginate {
+  margin: auto;
+  width: 25%;
+}
+.pagination > li > a {
+  background: #000;
+  color: $white;
+}
+.pagination > .active > a {
+  background-color: #600;
+  border-color: $white;
+  &:hover {
+    background: #600;
+    border-color: $white;
+  }
+}
+.pagination > .disabled > a {
+  background-color: #000;
+  color: $white;
+}
 
 /* signup/login/edit style */
 .user-info {
@@ -199,22 +227,34 @@ nav {
 
 /* Deck index styling */
 .deck-row {
-  background-color: $white;
-  border-radius: 10px;
-  max-width: 750px;
-  margin: 0 20px 30px;
-  padding: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  margin: 10px;
+  padding: 10px 20px;
+  h3 {
+    margin-top: 0;
+  }
   a {
     color: #600;
-    text-decoration: underline;
+    &:hover {
+      color:#800;
+    }
+  }
+  &:last-child {
+    border: none;
   }
 }
 .name-form {
   border: 1px solid $white;
   border-radius: 5px;
+  height: 50px;
   margin-top: 15px;
   input[type=text] {
     width: 50%;
+  }
+}
+.leader-img {
+  img {
+    height: 200px;
   }
 }
 /* Deck list styling */
@@ -249,6 +289,7 @@ nav {
     height: 15vh;
     padding: 5px 10px;
     width: 100%;
+    max-width: 550px;
   }
 }
 .description-area {
@@ -286,6 +327,7 @@ select {
 .sm-btn {
   background: $white;
   border: 1px solid #0b232f;
+  font-size: 1.3rem;
   margin: 1px 0;
   padding: 0 4px;
   width: 100%;
@@ -341,7 +383,8 @@ select {
 
 /* Card list styling */
 .card-list {
-  background-color: rgba(176, 164, 164, 0.5);
+  background-color: rgba(176, 164, 164, 0.45);
+  border-radius: 3px;
   color: #000;
   margin: auto;
   padding: 20px;
@@ -361,7 +404,7 @@ select {
   display: flex;
   align-items: center;
   &:hover {
-    background-color: #e0dede;
+    background-color: $white;
   }
 }
 .card-pic {

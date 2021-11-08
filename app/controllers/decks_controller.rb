@@ -2,8 +2,7 @@ class DecksController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def index
-    @decks = Deck.all
-    @users = User.all
+    @decks = Deck.paginate(page: params[:page])
   end
 
   def show

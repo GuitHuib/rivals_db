@@ -1,13 +1,25 @@
 <% provide(:title, 'Recent Decks') %>
 <div class="container">
   <div class="row white offset bold p-20">
-    <h1>Public decklists coming soon</h1>
+    <h1>Published decklists</h1>
   </div>
-  <% @decks.each do |deck| %>
-    <% if deck.public %>
-      <%= link_to deck do %>
-        <%= render 'users/deckRow', deck: deck %>
+
+  <div class="paginate">
+    <%= will_paginate if @decks.length > 30 %>
+  </div>
+
+    <div class="card-list max-800">
+      <% @decks.each do |deck| %>
+        <% if deck.public %>
+          <%= link_to deck do %>
+            <%= render 'users/deckRow', deck: deck %>
+          <% end %>
+        <% end%>
       <% end %>
-    <% end%>
-  <% end %>
+    </div>
+
+    <div class="paginate">
+      <%= will_paginate if @decks.length > 30 %>
+    </div>
+
 </div>
