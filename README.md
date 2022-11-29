@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the unofficial site to serve a card database and deckbuilder for Renegade Studios Vampire: the Masquerade, Rivals LCG.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Currently hosted on Heroku, you can find the site at https://rivals-db.herokuapp.com/cards

@@ -1,3 +1,4 @@
+<%# buttons for adding/removing cards from deck %>
 <%= button_to "0", decklists_path,
                      params: {c_id: card.id, d_id: id, val: 0},
                      remote: true,
@@ -7,6 +8,7 @@
                      remote: true,
                      class: " sm-btn qty" %>
 
+<%# only add last buttons if they can be legally added %>
 <% unless card.card_type === "Haven" || card.card_type === "Agenda" || card.card_type === "Character" %>
 
 <%= button_to "2", decklists_path,

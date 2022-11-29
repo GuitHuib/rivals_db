@@ -4,6 +4,7 @@
   </div>
   <div class="card-container row">
     <% cards.uniq.each do |card| %>
+    <!-- render each card with count -->
       <%= render 'decks/deckCard',
         card: card,
         card_count: cards.where(name: card.name).length %>

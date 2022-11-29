@@ -3,13 +3,16 @@
     <%= card_count %>
   </div>
   <div class="col-md-5 col-sm-2 col-xs-5 white-link">
+    <!-- render character card -->
     <%= link_to card.name, card, remote: true %>
+    <!-- check if character is leader -->
     <% if leader %>
       - Leader
     <% end %>
   </div>
   <% if current_user?(@deck.user) %>
     <% unless leader %>
+    <!-- form to make character leader -->
       <div class="col-md-1 col-xs-2">
         <%= form_with model: deck do |f| %>
           <%= f.hidden_field :leader, value: card.id %>

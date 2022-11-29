@@ -1,5 +1,5 @@
 <div class="centered">
-  <%# split deck list by card type %>
+  <!-- split deck list by card type -->
   <div class="row centered">
 
     <div class="col-md-6 col-sm-6 col-xs-6">
@@ -16,11 +16,11 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12">
       <%= render 'decks/characters',
-          cards: @characters,
-          type: "character",
-          title: "Characters",
-          leader: @leader,
-          deck: @deck
+          cards: @characters,  #send character cards
+          type: "character",   #dynamic div id
+          title: "Characters", #row header
+          leader: @leader,     #single out leader card
+          deck: @deck          #send deck info
       %>
     </div>
 

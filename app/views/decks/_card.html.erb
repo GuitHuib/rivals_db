@@ -1,15 +1,20 @@
+<!-- cards in search area, not decklist -->
 <div class="row card-row text-center">
+  <!-- render row of card information for deck page -->
 
   <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3">
     <div class="row buttons">
+      <!-- add/remove buttons -->
       <%= render 'decks/button', card: card, id: id %>
     </div>
   </div>
 
   <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 text-left">
+    <!-- card name -->
     <%= link_to card.name, card, remote: true%>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <%# clan symbol %>
     <% if card.faction && card.faction != "Neutral" %>
       <%= image_tag card.faction %>
     <% else %>
@@ -18,10 +23,12 @@
   </div>
 
   <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs">
+    <!-- blood -->
     <%= card.blood %>
     <%= card.blood_requirement %>
   </div>
   <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
+    <%# character stats %>
     <% if card.card_type === "Character" %>
       <%= card.physical %>/
       <%= card.social %>/
@@ -31,6 +38,7 @@
     <% end %>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+    <!-- attack/defense stats -->
     <% if card.card_type.include? "Attack" %>
       <%= render 'shared/renderIcon', types: card.attack_type.split(",") %>
     <% end %>
@@ -40,6 +48,7 @@
     <% end %>
   </div>
   <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+    <!-- damage/shield -->
     <%= card.damage %>
     <%= card.shield %>
   </div>

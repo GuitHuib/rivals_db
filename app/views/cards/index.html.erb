@@ -3,15 +3,15 @@
 <div class="container">
 
   <div class="card-pic">
-
+    <!-- placeholder for images -->
   </div>
 
   <div class="row">
     <div class="col-lg-8 col-md-7 col-xs-12 centered">
       <div class="hidden-xs">
+        <!-- display image on larger screens, left side of screen -->
         <%= image_tag 'vtmBannerB', class: "dynamic-img" %>
       </div>
-
     </div>
 
     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
@@ -19,9 +19,9 @@
         <h1>Card Search</h1>
       </div>
 
-      <%# Card search on right side %>
+      <!-- Card search form on right side -->
       <div class="search-bar split-form">
-        <%# render search form with appropriate url path %>
+        <!-- render search form with appropriate url path -->
         <%= form_with url: cards_path, method: :get, id: "search-form", local: false do |f| %>
           <%= render 'shared/search', :f => f %>
         <% end %>
@@ -29,10 +29,12 @@
     </div>
   </div>
 
+  <!-- card list -->
   <div class="centered list">
     <div class="card-list">
       <%= render 'listHeader' %>
 
+      <!-- display search results -->
       <div class="results">
         <%= render @cards %>
       </div>

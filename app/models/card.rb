@@ -2,6 +2,7 @@ class Card < ApplicationRecord
   has_many :decklists
   has_many :decks, through: :decklists
 
+  # define search function and criteria
   def self.search(name, faction, card_type, blood_requirement, blood, physical, social, mental, tags, attack_type, disciplines, text, product)
     card = Card.all
     if name.present?

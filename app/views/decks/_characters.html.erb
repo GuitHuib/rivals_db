@@ -3,6 +3,7 @@
     <h4><%= title %> (<span id="<%= type %>-count"><%= cards.length %></span>)</h4>
   </div>
 
+  <!-- render leader character first -->
   <% if leader %>
     <div class="row">
       <%= render 'character',
@@ -13,6 +14,7 @@
     </div>
   <% end %>
   <div class="card-container row">
+    <!-- render all other characters -->
     <% cards.uniq.each do |card| %>
       <% unless card === leader %>
         <%= render 'character',
